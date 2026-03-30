@@ -484,7 +484,8 @@
        ══════════════════════════════════════════════════ */
     @media (max-width: 1024px) {
       .hero { grid-template-columns: 1fr; }
-      .hero-photo { max-height: 400px; order: -1; }
+      .hero-photo { max-height: none; order: -1; }
+      .hero-photo img { max-width: 360px; margin: 0 auto; object-position: top; }
       .hero-content { padding-bottom: 3rem; }
       .projects-grid { grid-template-columns: 1fr; }
       .approach-grid { grid-template-columns: 1fr; }
@@ -514,7 +515,8 @@
       .form-row { grid-template-columns: 1fr; }
       .side-label { display: none; }
       .footer { flex-direction: column; gap: 1.5rem; text-align: center; }
-      .hero-photo { max-height: 320px; }
+      .hero-photo { max-height: none; }
+      .hero-photo img { max-width: 280px; object-position: top; }
       .hero-actions { flex-direction: column; }
     }
   </style>

@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Quickscan — Ray Westerhout</title>
+  <meta name="description" content="Laat je bedrijfsprocessen doorlichten en ontdek de vijf beste AI-kansen voor jouw situatie. Rapport binnen 2–3 werkdagen. EUR 500 — gratis voor de eerste 5 bedrijven.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="AI Quickscan — Ontdek je 5 beste AI-kansen">
+  <meta property="og:description" content="Een grondige audit van je processen, gevolgd door een concreet rapport met de vijf beste AI-kansen. EUR 500 — gratis voor de eerste 5 bedrijven.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://raywesterhout.nl/quickscan.html">
+  <meta property="og:image" content="https://raywesterhout.nl/images/raymond-hero.png">
+  <meta property="og:locale" content="nl_NL">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Quickscan — Ontdek je 5 beste AI-kansen">
+  <meta name="twitter:description" content="EUR 500 — gratis voor de eerste 5 bedrijven. Rapport binnen 2–3 werkdagen.">
+  <meta name="twitter:image" content="https://raywesterhout.nl/images/raymond-hero.png">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>R</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ══════════════════════════════════════════════════
+       RESET & TOKENS
+       ══════════════════════════════════════════════════ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg:         #0C0B09;
+      --bg-warm:    #111010;
+      --surface:    #1A1917;
+      --surface-2:  #222120;
+      --border:     #2A2825;
+      --border-light:#3A3835;
+      --text:       #E8E4DD;
+      --text-muted: #9A9590;
+      --text-dim:   #6A6560;
+      --accent:     #C8956C;
+      --accent-soft:#C8956C22;
+      --accent-hover:#D4A57E;
+      --serif:      'Instrument Serif', Georgia, serif;
+      --sans:       'DM Sans', system-ui, sans-serif;
+    }
+
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); overflow-x: hidden; }
+
+    /* Grain */
+    body::before {
+      content: ''; position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 180px;
+    }
+
+    /* Ambient glows */
+    .ambient { position: fixed; width: 600px; height: 600px; border-radius: 50%; filter: blur(160px); opacity: 0.07; pointer-events: none; z-index: 0; }
+    .ambient--warm { background: var(--accent); top: -200px; right: -100px; }
+    .ambient--cool { background: #6C8EC8; bottom: -300px; left: -200px; opacity: 0.04; }
+
+    /* ══════════════════════════════════════════════════
+       UTILITIES
+       ══════════════════════════════════════════════════ */
+    .section-pad { padding: 6rem 3.5rem; max-width: 1400px; margin: 0 auto; position: relative; z-index: 1; }
+    .section-divider { width: 100%; height: 1px; background: var(--border); }
+
+    .overline { display: inline-flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; }
+    .overline::before { content: ''; width: 40px; height: 1px; background: var(--accent); }
+    .overline span { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
+
+    .section-title {
+      font-family: var(--serif); font-weight: 400; font-size: clamp(2.4rem, 5vw, 4.5rem);
+      line-height: 1.1; letter-spacing: -0.02em; color: var(--text);
+    }
+    .section-title em { font-style: italic; color: var(--accent); }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9rem 2rem;
+      font-family: var(--sans); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em;
+      text-transform: uppercase; text-decoration: none; border-radius: 2px; cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1); border: none;
+    }
+    .btn--primary { background: var(--accent); color: var(--bg); border: 1px solid var(--accent); }
+    .btn--primary:hover { background: var(--accent-hover); box-shadow: 0 8px 40px var(--accent-soft); transform: translateY(-2px); }
+    .btn--outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .btn--outline:hover { border-color: var(--text-muted); transform: translateY(-2px); }
+    .btn svg { width: 14px; height: 14px; transition: transform 0.3s; }
+    .btn:hover svg { transform: translateX(3px); }
+
+    /* Scroll-reveal */
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ══════════════════════════════════════════════════
+       NAVIGATION
+       ══════════════════════════════════════════════════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.5rem 3.5rem;
+      background: rgba(12, 11, 9, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s, padding 0.3s;
+    }
+    nav.scrolled { border-bottom-color: var(--border); padding: 1rem 3.5rem; }
+
+    .nav-brand { font-family: var(--serif); font-size: 1.35rem; color: var(--text); letter-spacing: -0.01em; text-decoration: none; }
+    .nav-brand span { color: var(--accent); }
+    .nav-back {
+      font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-muted); text-decoration: none; transition: color 0.3s;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .nav-back:hover { color: var(--text); }
+    .nav-back svg { width: 14px; height: 14px; }
+
+    /* ══════════════════════════════════════════════════
+       PAGE HERO
+       ══════════════════════════════════════════════════ */
+    .page-hero {
+      position: relative; z-index: 1; padding: 10rem 3.5rem 5rem;
+      max-width: 1400px; margin: 0 auto;
+    }
+    .promo-banner {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      background: var(--accent-soft); border: 1px solid var(--accent);
+      border-radius: 2px; padding: 0.5rem 1.25rem; margin-bottom: 2rem;
+      animation: fadeUp 0.7s 0.1s ease-out both;
+    }
+    .promo-banner-dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .promo-banner span { font-size: 0.78rem; font-weight: 500; color: var(--accent); letter-spacing: 0.04em; }
+
+    .page-hero-title {
+      font-family: var(--serif); font-weight: 400; font-size: clamp(2.8rem, 6vw, 5.5rem);
+      line-height: 1.05; letter-spacing: -0.02em; color: var(--text); max-width: 780px;
+      animation: fadeUp 0.8s 0.25s ease-out both;
+    }
+    .page-hero-title em { font-style: italic; color: var(--accent); }
+
+    .page-hero-sub {
+      margin-top: 1.75rem; font-size: 1.1rem; font-weight: 300; line-height: 1.7;
+      color: var(--text-muted); max-width: 560px;
+      animation: fadeUp 0.8s 0.4s ease-out both;
+    }
+
+    .page-hero-price {
+      display: flex; align-items: baseline; gap: 0.75rem; margin-top: 2.5rem;
+      animation: fadeUp 0.8s 0.5s ease-out both;
+    }
+    .price-amount { font-family: var(--serif); font-size: 3.2rem; color: var(--text); line-height: 1; }
+    .price-currency { font-size: 1.2rem; color: var(--text-muted); }
+    .price-meta { font-size: 0.85rem; color: var(--text-dim); padding-left: 0.5rem; border-left: 1px solid var(--border); }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ══════════════════════════════════════════════════
+       WAT JE KRIJGT
+       ══════════════════════════════════════════════════ */
+    .deliverables-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3.5rem;
+    }
+    .deliverable-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 4px;
+      padding: 2.5rem 2rem; display: flex; flex-direction: column; gap: 1rem;
+      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1); position: relative; overflow: hidden;
+    }
+    .deliverable-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--accent); transform: scaleX(0); transform-origin: left;
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .deliverable-card:hover { border-color: var(--border-light); transform: translateY(-4px); }
+    .deliverable-card:hover::before { transform: scaleX(1); }
+
+    .deliverable-icon {
+      width: 52px; height: 52px; border: 1px solid var(--border); border-radius: 6px;
+      display: flex; align-items: center; justify-content: center; color: var(--accent);
+    }
+    .deliverable-icon svg { width: 24px; height: 24px; }
+    .deliverable-card h3 { font-family: var(--serif); font-size: 1.35rem; color: var(--text); line-height: 1.25; }
+    .deliverable-card p { font-size: 0.9rem; line-height: 1.65; color: var(--text-muted); }
+
+    /* ══════════════════════════════════════════════════
+       VOOR WIE
+       ══════════════════════════════════════════════════ */
+    .voor-wie-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 3.5rem; align-items: start; }
+    .voor-wie-text p { font-size: 1.05rem; line-height: 1.8; color: var(--text-muted); }
+    .voor-wie-text p + p { margin-top: 1.5rem; }
+    .voor-wie-text p strong { color: var(--text); font-weight: 500; }
+
+    .criteria-list { display: flex; flex-direction: column; gap: 1rem; }
+    .criteria-item {
+      display: flex; align-items: flex-start; gap: 1.25rem;
+      padding: 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px;
+      transition: border-color 0.3s;
+    }
+    .criteria-item:hover { border-color: var(--border-light); }
+    .criteria-check {
+      width: 32px; height: 32px; border: 1px solid var(--accent); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--accent);
+    }
+    .criteria-check svg { width: 14px; height: 14px; }
+    .criteria-item h4 { font-size: 0.95rem; font-weight: 500; color: var(--text); margin-bottom: 0.25rem; }
+    .criteria-item p { font-size: 0.85rem; line-height: 1.55; color: var(--text-muted); }
+
+    /* ══════════════════════════════════════════════════
+       HOE HET WERKT
+       ══════════════════════════════════════════════════ */
+    .process-steps { display: flex; flex-direction: column; gap: 0; margin-top: 3.5rem; max-width: 800px; }
+    .process-step {
+      display: grid; grid-template-columns: 64px 1fr; gap: 2rem;
+      padding: 2.5rem 0; border-bottom: 1px solid var(--border);
+    }
+    .process-step:first-child { border-top: 1px solid var(--border); }
+    .process-num {
+      font-family: var(--serif); font-size: 2.5rem; color: var(--accent);
+      font-weight: 400; line-height: 1; opacity: 0.4; padding-top: 0.1rem;
+      transition: opacity 0.3s;
+    }
+    .process-step:hover .process-num { opacity: 1; }
+    .process-step h3 { font-family: var(--serif); font-size: 1.3rem; color: var(--text); margin-bottom: 0.5rem; }
+    .process-step p { font-size: 0.92rem; line-height: 1.65; color: var(--text-muted); }
+    .process-step-meta { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); margin-top: 0.75rem; }
+
+    /* ══════════════════════════════════════════════════
+       INTAKE FORM
+       ══════════════════════════════════════════════════ */
+    .form-section-inner {
+      display: grid; grid-template-columns: 1fr 1.2fr; gap: 6rem; margin-top: 3.5rem; align-items: start;
+    }
+    .form-intro p { font-size: 1.05rem; line-height: 1.8; color: var(--text-muted); }
+    .form-intro p + p { margin-top: 1.5rem; }
+    .form-intro p strong { color: var(--text); font-weight: 500; }
+    .form-price-recap {
+      margin-top: 2.5rem; padding: 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px;
+    }
+    .form-price-recap-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.75rem; }
+    .form-price-recap-amount {
+      font-family: var(--serif); font-size: 2.2rem; color: var(--text); line-height: 1;
+    }
+    .form-price-recap-amount span { font-size: 1rem; color: var(--text-muted); font-family: var(--sans); }
+    .form-promo-note {
+      margin-top: 0.75rem; font-size: 0.85rem; color: var(--accent); display: flex; align-items: center; gap: 0.5rem;
+    }
+    .form-promo-note::before { content: ''; width: 6px; height: 1px; background: var(--accent); }
+
+    .intake-form { display: flex; flex-direction: column; gap: 1.25rem; }
+    .form-field { display: flex; flex-direction: column; gap: 0.5rem; }
+    .form-field label {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim);
+    }
+    .form-field input, .form-field select, .form-field textarea {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 2px;
+      padding: 0.85rem 1rem; font-family: var(--sans); font-size: 0.9rem; color: var(--text);
+      transition: border-color 0.3s; outline: none; width: 100%;
+      -webkit-appearance: none; appearance: none;
+    }
+    .form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: var(--accent); }
+    .form-field textarea { resize: vertical; min-height: 120px; }
+    .form-field input::placeholder, .form-field textarea::placeholder { color: var(--text-dim); }
+    .form-field select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236A6560' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; cursor: pointer; }
+    .form-field select option { background: var(--surface-2); color: var(--text); }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+
+    .form-submit-row { display: flex; flex-direction: column; gap: 1rem; margin-top: 0.5rem; }
+    .form-submit-note { font-size: 0.78rem; color: var(--text-dim); line-height: 1.5; }
+    .form-submit-note a { color: var(--accent); text-decoration: none; }
+    .form-submit-note a:hover { color: var(--accent-hover); }
+
+    /* ══════════════════════════════════════════════════
+       FOOTER
+       ══════════════════════════════════════════════════ */
+    .footer {
+      padding: 3rem 3.5rem; max-width: 1400px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .footer-left { font-size: 0.8rem; color: var(--text-dim); }
+    .footer-right { display: flex; gap: 2rem; }
+    .footer-right a {
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--text-dim); text-decoration: none; transition: color 0.3s;
+    }
+    .footer-right a:hover { color: var(--accent); }
+
+    /* ══════════════════════════════════════════════════
+       RESPONSIVE
+       ══════════════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .deliverables-grid { grid-template-columns: 1fr; }
+      .voor-wie-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .form-section-inner { grid-template-columns: 1fr; gap: 3rem; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 1.2rem 1.5rem; }
+      nav.scrolled { padding: 1rem 1.5rem; }
+      .page-hero { padding: 8rem 1.5rem 3rem; }
+      .section-pad { padding: 4rem 1.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+      .process-step { grid-template-columns: 48px 1fr; gap: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient light -->
+  <div class="ambient ambient--warm"></div>
+  <div class="ambient ambient--cool"></div>
+
+  <!-- ════════════════════════════════════════════════
+       NAVIGATION
+       ════════════════════════════════════════════════ -->
+  <nav id="navbar">
+    <a href="index.html" class="nav-brand">ray<span>.</span></a>
+    <a href="index.html" class="nav-back">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 8H3M7 4l-4 4 4 4"/></svg>
+      Terug naar home
+    </a>
+  </nav>
+
+  <!-- ════════════════════════════════════════════════
+       PAGE HERO
+       ════════════════════════════════════════════════ -->
+  <div class="page-hero">
+    <div class="promo-banner">
+      <div class="promo-banner-dot"></div>
+      <span>Gratis voor de eerste 5 bedrijven &mdash; nog plaatsen beschikbaar</span>
+    </div>
+    <h1 class="page-hero-title">
+      AI Quickscan &mdash;<br><em>jouw 5 beste kansen</em><br>in kaart.
+    </h1>
+    <p class="page-hero-sub">
+      Twee tot drie werkdagen. Een gesprek. Een concreet rapport met de vijf automatiseringskansen die voor jouw bedrijf het meest oplevert. Geen theorie.
+    </p>
+    <div class="page-hero-price">
+      <span class="price-currency">EUR</span>
+      <span class="price-amount">500</span>
+      <span class="price-meta">Eenmalig &mdash; doorlooptijd 2–3 werkdagen</span>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ════════════════════════════════════════════════
+       WAT JE KRIJGT
+       ════════════════════════════════════════════════ -->
+  <section class="section-pad">
+    <div class="reveal">
+      <div class="overline"><span>Deliverables</span></div>
+      <h2 class="section-title">Wat je <em>krijgt</em></h2>
+    </div>
+    <div class="deliverables-grid">
+
+      <div class="deliverable-card reveal">
+        <div class="deliverable-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6M9 16h6M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/></svg>
+        </div>
+        <h3>Rapport met top 5 kansen</h3>
+        <p>Een overzichtelijk document met de vijf processen in jouw bedrijf die het meest te winnen hebben bij automatisering. Per kans: wat het is, hoe het werkt, welke tool het beste past.</p>
+      </div>
+
+      <div class="deliverable-card reveal">
+        <div class="deliverable-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Geschatte tijdsbesparing</h3>
+        <p>Per automatiseringskans een realistische schatting van hoeveel uur per week of maand je terugwint. Gebaseerd op vergelijkbare implementaties, niet op marketingclaims.</p>
+      </div>
+
+      <div class="deliverable-card reveal">
+        <div class="deliverable-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Concrete aanbeveling</h3>
+        <p>Welke kans ga je als eerste aanpakken en waarom. Met een duidelijk beeld van wat het kost, wat het oplevert en hoe lang het duurt om te implementeren.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ════════════════════════════════════════════════
+       VOOR WIE
+       ════════════════════════════════════════════════ -->
+  <section class="section-pad">
+    <div class="reveal">
+      <div class="overline"><span>Doelgroep</span></div>
+      <h2 class="section-title">Voor <em>wie</em> is dit?</h2>
+    </div>
+    <div class="voor-wie-grid">
+      <div class="voor-wie-text reveal">
+        <p>
+          De Quickscan is bedoeld voor MKB-bedrijven met vijf tot vijftig medewerkers die concreet willen weten wat AI voor hen kan betekenen — zonder eerst EUR 50.000 uit te geven aan een consultancytraject.
+        </p>
+        <p>
+          Je hoeft niets te weten van AI. Je hoeft geen technische achtergrond te hebben. Je hoeft alleen maar bereid te zijn om een gesprek van een uur te voeren over hoe je bedrijf werkt.
+        </p>
+        <p>
+          <strong>Ik doe de analyse. Jij krijgt het rapport. Dan beslis je zelf wat je er mee doet.</strong>
+        </p>
+      </div>
+      <div class="criteria-list reveal">
+        <div class="criteria-item">
+          <div class="criteria-check">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg>
+          </div>
+          <div>
+            <h4>5–50 medewerkers</h4>
+            <p>Klein genoeg om snel te schakelen, groot genoeg om echt te profiteren van automatisering.</p>
+          </div>
+        </div>
+        <div class="criteria-item">
+          <div class="criteria-check">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg>
+          </div>
+          <div>
+            <h4>Repeterende processen</h4>
+            <p>Je hebt taken die elke week terugkomen en meer tijd kosten dan ze zouden moeten.</p>
+          </div>
+        </div>
+        <div class="criteria-item">
+          <div class="criteria-check">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg>
+          </div>
+          <div>
+            <h4>Concrete ambitie</h4>
+            <p>Je wil niet weten of AI interessant is. Je wil weten welke stap je morgen kunt zetten.</p>
+          </div>
+        </div>
+        <div class="criteria-item">
+          <div class="criteria-check">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg>
+          </div>
+          <div>
+            <h4>Elk sector</h4>
+            <p>Horeca, dienstverlening, handel, zorg — als er repeterende processen zijn, is er ruimte voor AI.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ════════════════════════════════════════════════
+       HOE HET WERKT
+       ════════════════════════════════════════════════ -->
+  <section class="section-pad">
+    <div class="reveal">
+      <div class="overline"><span>Het proces</span></div>
+      <h2 class="section-title">Hoe het <em>werkt</em></h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="process-num">1</div>
+        <div>
+          <h3>Intake via dit formulier</h3>
+          <p>Je vult het onderstaande formulier in. Vijf vragen. Tien minuten. Ik gebruik de antwoorden om het gesprek goed voor te bereiden.</p>
+          <div class="process-step-meta">Nu &mdash; 10 minuten</div>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-num">2</div>
+        <div>
+          <h3>Gesprek van 60 minuten</h3>
+          <p>We plannen een videogesprek in. Ik stel gerichte vragen over hoe je bedrijf werkt: welke tools je gebruikt, wat de grootste tijdvreters zijn, waar je mensen de meeste fouten maken.</p>
+          <div class="process-step-meta">Werkdag 1 &mdash; 60 minuten via Teams of Zoom</div>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-num">3</div>
+        <div>
+          <h3>Analyse en rapport</h3>
+          <p>Ik verwerk het gesprek tot een concreet rapport. Geen buzzwords, geen vage aanbevelingen. Vijf kansen, elk uitgewerkt met toolkeuze, inschatting van tijdsbesparing en een implementatierichting.</p>
+          <div class="process-step-meta">Werkdag 2–3 &mdash; jij hoeft niets te doen</div>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-num">4</div>
+        <div>
+          <h3>Rapport + afsluiting</h3>
+          <p>Je ontvangt het rapport. Optioneel plannen we een kort gesprek van 30 minuten om de bevindingen door te nemen en vragen te beantwoorden.</p>
+          <div class="process-step-meta">Werkdag 3 &mdash; rapport per e-mail, optioneel gesprek</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ════════════════════════════════════════════════
+       INTAKE FORM
+       ════════════════════════════════════════════════ -->
+  <section class="section-pad" id="aanmelden">
+    <div class="reveal">
+      <div class="overline"><span>Aanmelden</span></div>
+      <h2 class="section-title">Start de <em>Quickscan</em></h2>
+    </div>
+    <div class="form-section-inner">
+
+      <div class="form-intro reveal">
+        <p>
+          Vul het formulier in. Ik neem binnen een werkdag contact op om een datum voor het intakegesprek te plannen.
+        </p>
+        <p>
+          <strong>Geen verplichtingen na het rapport.</strong> Je beslist zelf of je vervolgens samenwerkt. Het rapport is van jou, ongeacht wat je daarna doet.
+        </p>
+        <div class="form-price-recap">
+          <div class="form-price-recap-label">Prijs</div>
+          <div class="form-price-recap-amount">EUR 500 <span>eenmalig</span></div>
+          <div class="form-promo-note">Gratis voor de eerste 5 bedrijven &mdash; factuur na afronding</div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <form class="intake-form" id="quickscanForm">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="bedrijfsnaam">Bedrijfsnaam *</label>
+              <input type="text" id="bedrijfsnaam" name="bedrijfsnaam" placeholder="Jouw bedrijfsnaam" required>
+            </div>
+            <div class="form-field">
+              <label for="sector">Sector *</label>
+              <select id="sector" name="sector" required>
+                <option value="" disabled selected>Kies een sector</option>
+                <option value="horeca">Horeca &amp; Foodservice</option>
+                <option value="detailhandel">Detailhandel</option>
+                <option value="zakelijke-dienstverlening">Zakelijke dienstverlening</option>
+                <option value="zorg">Zorg &amp; Welzijn</option>
+                <option value="bouw">Bouw &amp; Techniek</option>
+                <option value="transport">Transport &amp; Logistiek</option>
+                <option value="it">IT &amp; Software</option>
+                <option value="overig">Overig</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="medewerkers">Aantal medewerkers *</label>
+            <select id="medewerkers" name="medewerkers" required>
+              <option value="" disabled selected>Kies een range</option>
+              <option value="1-4">1–4 medewerkers</option>
+              <option value="5-10">5–10 medewerkers</option>
+              <option value="11-25">11–25 medewerkers</option>
+              <option value="26-50">26–50 medewerkers</option>
+              <option value="50+">Meer dan 50 medewerkers</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="tijdvreter">Grootste tijdvreter *</label>
+            <textarea id="tijdvreter" name="tijdvreter" placeholder="Beschrijf de taak of het proces dat de meeste tijd kost in jouw bedrijf. Bijv: iedere week handmatig facturen verwerken, of elke dag dezelfde e-mails beantwoorden." required></textarea>
+          </div>
+          <div class="form-field">
+            <label for="email">E-mailadres *</label>
+            <input type="email" id="email" name="email" placeholder="jouw@bedrijf.nl" required>
+          </div>
+          <div class="form-submit-row">
+            <button type="submit" class="btn btn--primary">
+              Quickscan aanvragen
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            </button>
+            <p class="form-submit-note">
+              Door te versturen geef je toestemming om contact op te nemen over de Quickscan. Geen nieuwsbrief, geen spam. Vragen? Mail naar <a href="mailto:ray@raywesterhout.nl">ray@raywesterhout.nl</a>
+            </p>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ════════════════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-left">
+      &copy; 2025 Raymond Westerhout &mdash; raywesterhout.nl
+    </div>
+    <div class="footer-right">
+      <a href="index.html">Home</a>
+      <a href="index.html#aanbod">Aanbod</a>
+      <a href="https://linkedin.com/in/raywesterhout" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>
+    /* ── Nav scroll ── */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    /* ── Scroll-reveal ── */
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          e.target.style.transitionDelay = (i * 0.05) + 's';
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => observer.observe(el));
+
+    /* ── Form submit via mailto ── */
+    document.getElementById('quickscanForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const bedrijfsnaam = document.getElementById('bedrijfsnaam').value;
+      const sector       = document.getElementById('sector').value;
+      const medewerkers  = document.getElementById('medewerkers').value;
+      const tijdvreter   = document.getElementById('tijdvreter').value;
+      const email        = document.getElementById('email').value;
+
+      const subject = encodeURIComponent('AI Quickscan aanvraag — ' + bedrijfsnaam);
+      const body = encodeURIComponent(
+        'Bedrijfsnaam: ' + bedrijfsnaam + '\n' +
+        'Sector: ' + sector + '\n' +
+        'Aantal medewerkers: ' + medewerkers + '\n' +
+        'E-mailadres: ' + email + '\n\n' +
+        'Grootste tijdvreter:\n' + tijdvreter
+      );
+
+      window.location.href = 'mailto:ray@raywesterhout.nl?subject=' + subject + '&body=' + body;
+    });
+  </script>
+</body>
+</html>

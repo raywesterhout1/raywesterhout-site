@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ray Westerhout — Horeca · Coaching · Technologie</title>
-  <meta name="description" content="Ondernemer op het kruispunt van horeca-consultancy, coaching voor mannen en AI-integratie. Ik help horecaondernemers, mannen die vastzitten, en bedrijven die slimmer willen werken.">
+  <title>Ray Westerhout — AI-implementatie voor MKB</title>
+  <meta name="description" content="Ray Westerhout bouwt 3 bedrijven met AI. 20+ jaar horeca-expertise, nu ingezet voor AI-implementatie bij MKB. Geen theorie. Resultaat.">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Ray Westerhout — Horeca · Coaching · Technologie">
-  <meta property="og:description" content="Menuontwikkeling, coaching voor mannen, AI-integratie voor horeca. Geen theorie. Resultaat.">
+  <meta property="og:title" content="Ray Westerhout — Ik bouw 3 bedrijven met AI">
+  <meta property="og:description" content="20+ jaar horeca-expertise, nu ingezet voor AI-implementatie bij MKB. Geen theorie. Resultaat.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://raywesterhout.nl">
   <meta property="og:image" content="https://raywesterhout.nl/images/raymond-hero.png">
@@ -16,8 +16,8 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Ray Westerhout — Horeca · Coaching · Technologie">
-  <meta name="twitter:description" content="Menuontwikkeling, coaching voor mannen, AI-integratie voor horeca. Geen theorie. Resultaat.">
+  <meta name="twitter:title" content="Ray Westerhout — Ik bouw 3 bedrijven met AI">
+  <meta name="twitter:description" content="20+ jaar horeca-expertise, nu ingezet voor AI-implementatie bij MKB. Geen theorie. Resultaat.">
   <meta name="twitter:image" content="https://raywesterhout.nl/images/raymond-hero.png">
 
   <!-- Favicon -->
@@ -192,269 +192,163 @@
     @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 
     /* ══════════════════════════════════════════════════
-       TRUSTED BY BAR
+       2. DE 3 BEDRIJVEN
        ══════════════════════════════════════════════════ */
-    .trusted-bar {
-      position: relative; z-index: 1; max-width: 1400px; margin: 0 auto;
-      padding: 3rem 3.5rem; text-align: center;
-      animation: fadeUp 0.8s 1.1s ease-out both;
-    }
-    .trusted-label {
-      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--text-dim); margin-bottom: 1.5rem;
-    }
-    .trusted-logos {
-      display: flex; align-items: center; justify-content: center; gap: 3rem; flex-wrap: wrap;
-    }
-    .trusted-logo {
-      font-family: var(--serif); font-size: 1.25rem; color: var(--text-dim);
-      letter-spacing: -0.01em; opacity: 0.5; transition: opacity 0.3s;
-      white-space: nowrap;
-    }
-    .trusted-logo:hover { opacity: 0.8; }
-    .trusted-separator { width: 1px; height: 24px; background: var(--border); }
-
-    /* ══════════════════════════════════════════════════
-       SCORE REPEAT CTA
-       ══════════════════════════════════════════════════ */
-    .score-cta-banner {
-      text-align: center; padding: 5rem 3.5rem; max-width: 1400px; margin: 0 auto;
-      position: relative; z-index: 1;
-    }
-    .score-cta-banner h2 {
-      font-family: var(--serif); font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      line-height: 1.15; color: var(--text); margin-bottom: 1rem;
-    }
-    .score-cta-banner h2 em { font-style: italic; color: var(--accent); }
-    .score-cta-banner p {
-      font-size: 1rem; color: var(--text-muted); max-width: 480px;
-      margin: 0 auto 2rem; line-height: 1.7;
-    }
-
-    @media (max-width: 768px) {
-      .trusted-bar { padding: 2rem 1.5rem; }
-      .trusted-logos { gap: 1.5rem; }
-      .trusted-logo { font-size: 1.05rem; }
-      .trusted-separator { display: none; }
-      .score-cta-banner { padding: 4rem 1.5rem; }
-    }
-
-    /* ══════════════════════════════════════════════════
-       2. DIENSTEN
-       ══════════════════════════════════════════════════ */
-    .projects-grid {
+    .bedrijven-grid {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3.5rem;
     }
-    .project-card {
+    .bedrijf-card {
       background: var(--surface); border: 1px solid var(--border); border-radius: 4px;
       padding: 2.5rem 2rem; transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
       display: flex; flex-direction: column; gap: 1.5rem; position: relative; overflow: hidden;
     }
-    .project-card::before {
+    .bedrijf-card::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
       background: var(--accent); transform: scaleX(0); transform-origin: left;
       transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
     }
-    .project-card:hover { border-color: var(--border-light); transform: translateY(-4px); }
-    .project-card:hover::before { transform: scaleX(1); }
+    .bedrijf-card:hover { border-color: var(--border-light); transform: translateY(-4px); }
+    .bedrijf-card:hover::before { transform: scaleX(1); }
 
-    .project-icon {
-      width: 52px; height: 52px; border: 1px solid var(--border); border-radius: 6px;
-      display: flex; align-items: center; justify-content: center; color: var(--accent);
+    .bedrijf-number {
+      font-family: var(--serif); font-size: 3rem; color: var(--border-light);
+      line-height: 1; font-weight: 400; position: absolute; top: 1.5rem; right: 2rem;
+      transition: color 0.4s;
     }
-    .project-icon svg { width: 24px; height: 24px; }
-    .project-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); }
-    .project-title { font-family: var(--serif); font-size: 1.6rem; line-height: 1.2; color: var(--text); }
-    .project-desc { font-size: 0.92rem; line-height: 1.65; color: var(--text-muted); flex: 1; }
-    .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .project-tag {
+    .bedrijf-card:hover .bedrijf-number { color: var(--accent-soft); }
+
+    .bedrijf-status {
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 0.3rem 0.7rem; border-radius: 2px; display: inline-block; width: fit-content;
+    }
+    .bedrijf-status--actief { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent); }
+    .bedrijf-status--nieuw { background: #1a2e1a; color: #7ec87e; border: 1px solid #2a4a2a; }
+    .bedrijf-status--bouw { background: var(--surface-2); color: var(--text-dim); border: 1px solid var(--border); }
+
+    .bedrijf-title { font-family: var(--serif); font-size: 1.6rem; line-height: 1.2; color: var(--text); }
+    .bedrijf-desc { font-size: 0.92rem; line-height: 1.65; color: var(--text-muted); flex: 1; }
+    .bedrijf-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .bedrijf-tag {
       font-size: 0.65rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
       padding: 0.35rem 0.75rem; border: 1px solid var(--border); border-radius: 2px; color: var(--text-dim);
     }
-    .project-cta {
-      display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.5rem;
-      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
-      color: var(--accent); text-decoration: none; transition: all 0.3s;
-    }
-    .project-cta:hover { color: var(--accent-hover); }
-    .project-cta svg { width: 14px; height: 14px; transition: transform 0.3s; }
-    .project-cta:hover svg { transform: translateX(4px); }
 
     /* ══════════════════════════════════════════════════
-       3. OVER MIJ
+       3. AANPAK (VRIJ-METHODE)
        ══════════════════════════════════════════════════ */
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 3.5rem; align-items: start; }
+    .aanpak-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 6rem; margin-top: 3.5rem; align-items: start; }
+    .aanpak-intro { display: flex; flex-direction: column; gap: 2rem; }
+    .aanpak-intro p { font-size: 1.05rem; line-height: 1.8; color: var(--text-muted); }
+    .aanpak-intro p strong { color: var(--text); font-weight: 500; }
 
-    .about-photo {
-      position: relative; border-radius: 4px; overflow: hidden;
-      aspect-ratio: 3/4;
+    .vrij-steps { display: flex; flex-direction: column; gap: 0; }
+    .vrij-step {
+      display: grid; grid-template-columns: 72px 1fr; gap: 1.5rem;
+      padding: 2rem 0; border-bottom: 1px solid var(--border);
+      transition: background 0.3s;
     }
-    .about-photo img {
-      width: 100%; height: 100%; object-fit: cover; display: block;
-      filter: grayscale(20%);
-      transition: filter 0.5s ease;
+    .vrij-step:first-child { border-top: 1px solid var(--border); }
+    .vrij-letter {
+      font-family: var(--serif); font-size: 2.8rem; color: var(--accent);
+      font-weight: 400; line-height: 1; padding-top: 0.15rem;
+      opacity: 0.5; transition: opacity 0.3s;
     }
-    .about-photo:hover img { filter: grayscale(0%); }
-    .about-photo::after {
-      content: ''; position: absolute; inset: 0;
-      border: 1px solid var(--border); border-radius: 4px; pointer-events: none;
-    }
-
-    .about-right { display: flex; flex-direction: column; gap: 2.5rem; }
-    .about-text { font-size: 1.05rem; line-height: 1.8; color: var(--text-muted); }
-    .about-text p + p { margin-top: 1.5rem; }
-    .about-text strong { color: var(--text); font-weight: 500; }
-
-    .about-details { display: flex; flex-direction: column; gap: 2.5rem; }
-    .detail-block { padding-left: 1.5rem; border-left: 1px solid var(--border); }
-    .detail-block h4 {
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 0.75rem;
-    }
-    .detail-block p { font-size: 0.95rem; line-height: 1.6; color: var(--text-muted); }
-    .detail-block ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-    .detail-block li { font-size: 0.95rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.5rem; }
-    .detail-block li::before { content: ''; width: 6px; height: 1px; background: var(--accent); }
+    .vrij-step:hover .vrij-letter { opacity: 1; }
+    .vrij-content h3 { font-family: var(--serif); font-size: 1.25rem; color: var(--text); margin-bottom: 0.5rem; }
+    .vrij-content p { font-size: 0.9rem; line-height: 1.65; color: var(--text-muted); }
 
     /* ══════════════════════════════════════════════════
-       4. HOE IK WERK
+       4. AANBOD
        ══════════════════════════════════════════════════ */
-    .approach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3.5rem; }
-    .approach-card {
-      background: var(--surface); border: 1px solid var(--border); border-radius: 4px;
-      padding: 2.5rem 2rem; transition: all 0.4s ease;
-    }
-    .approach-card:hover { border-color: var(--border-light); }
-    .approach-icon {
-      width: 48px; height: 48px; border: 1px solid var(--border); border-radius: 4px;
-      display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;
-      color: var(--accent); font-size: 1.2rem;
-    }
-    .approach-card h3 { font-family: var(--serif); font-size: 1.35rem; color: var(--text); margin-bottom: 0.75rem; }
-    .approach-card p { font-size: 0.9rem; line-height: 1.65; color: var(--text-muted); }
-
-    /* ══════════════════════════════════════════════════
-       SCORE CTA's
-       ══════════════════════════════════════════════════ */
-    .scores-grid {
+    .aanbod-grid {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3.5rem;
     }
-    .score-card {
+    .aanbod-card {
       background: var(--surface); border: 1px solid var(--border); border-radius: 4px;
-      padding: 2.5rem 2rem; text-align: center; transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-      display: flex; flex-direction: column; align-items: center; gap: 1.25rem;
+      padding: 2.5rem 2rem; display: flex; flex-direction: column; gap: 1.5rem;
+      position: relative; transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
     }
-    .score-card:hover { border-color: var(--accent); transform: translateY(-4px); }
-    .score-icon {
-      width: 64px; height: 64px; border-radius: 50%; border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center; color: var(--accent);
-      font-family: var(--serif); font-size: 1.5rem; font-weight: 400;
+    .aanbod-card--featured {
+      border-color: var(--accent); background: var(--surface-2);
     }
-    .score-card h3 { font-family: var(--serif); font-size: 1.4rem; color: var(--text); }
-    .score-card p { font-size: 0.88rem; line-height: 1.6; color: var(--text-muted); max-width: 280px; }
-    .score-card .btn { margin-top: 0.5rem; }
+    .aanbod-card:hover { transform: translateY(-4px); border-color: var(--border-light); }
+    .aanbod-card--featured:hover { border-color: var(--accent-hover); }
+
+    .aanbod-badge {
+      position: absolute; top: -1px; left: 2rem;
+      background: var(--accent); color: var(--bg);
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.3rem 0.8rem; border-radius: 0 0 2px 2px;
+    }
+    .aanbod-name { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); }
+    .aanbod-price {
+      display: flex; align-items: baseline; gap: 0.4rem;
+    }
+    .aanbod-price-amount {
+      font-family: var(--serif); font-size: 2.4rem; color: var(--text); line-height: 1;
+    }
+    .aanbod-price-label { font-size: 0.8rem; color: var(--text-dim); }
+    .aanbod-desc { font-size: 0.92rem; line-height: 1.65; color: var(--text-muted); }
+    .aanbod-meta { font-size: 0.8rem; color: var(--text-dim); padding-top: 0.5rem; border-top: 1px solid var(--border); }
+    .aanbod-features { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; flex: 1; }
+    .aanbod-features li {
+      font-size: 0.88rem; color: var(--text-muted); display: flex; align-items: flex-start; gap: 0.6rem; line-height: 1.5;
+    }
+    .aanbod-features li::before { content: ''; width: 6px; height: 1px; background: var(--accent); flex-shrink: 0; margin-top: 0.65em; }
+    .aanbod-cta {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--accent); text-decoration: none; transition: all 0.3s;
+      margin-top: auto;
+    }
+    .aanbod-cta:hover { color: var(--accent-hover); }
+    .aanbod-cta svg { width: 14px; height: 14px; transition: transform 0.3s; }
+    .aanbod-cta:hover svg { transform: translateX(4px); }
 
     /* ══════════════════════════════════════════════════
-       WAKKER TRAINING SPOTLIGHT
+       5. BUILD IN PUBLIC
        ══════════════════════════════════════════════════ */
-    .spotlight {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 3.5rem; align-items: center;
+    .bip-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; margin-top: 3.5rem; align-items: center;
     }
-    .spotlight-content h3 {
-      font-family: var(--serif); font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      line-height: 1.15; color: var(--text); margin-bottom: 1rem;
-    }
-    .spotlight-content h3 em { font-style: italic; color: var(--accent); }
-    .spotlight-price {
-      display: inline-flex; align-items: baseline; gap: 0.5rem; margin-bottom: 1.5rem;
-    }
-    .spotlight-price .amount {
-      font-family: var(--serif); font-size: 2.5rem; color: var(--accent);
-    }
-    .spotlight-price .label {
-      font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;
-    }
-    .spotlight-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
-    .spotlight-bullets li {
-      font-size: 0.95rem; color: var(--text-muted); display: flex; align-items: flex-start; gap: 0.75rem; line-height: 1.5;
-    }
-    .spotlight-bullets li svg { width: 18px; height: 18px; color: var(--accent); flex-shrink: 0; margin-top: 2px; }
-    .spotlight-visual {
-      position: relative; border-radius: 4px; overflow: hidden;
-    }
-    .spotlight-visual img {
-      width: 100%; height: 100%; object-fit: cover; border-radius: 4px;
-      aspect-ratio: 4/3;
-    }
-    .spotlight-badge {
-      position: absolute; top: 1.5rem; right: 1.5rem;
-      background: var(--accent); color: var(--bg); padding: 0.5rem 1rem;
-      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
-      border-radius: 2px;
-    }
+    .bip-content p { font-size: 1.05rem; line-height: 1.8; color: var(--text-muted); }
+    .bip-content p + p { margin-top: 1.5rem; }
+    .bip-content p strong { color: var(--text); font-weight: 500; }
+    .bip-actions { display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
 
-    /* ══════════════════════════════════════════════════
-       5. TOOLKIT
-       ══════════════════════════════════════════════════ */
-    .toolkit-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
-    .toolkit-pill {
-      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.04em;
-      padding: 0.6rem 1.2rem; border: 1px solid var(--border); border-radius: 2px;
-      color: var(--text-muted); transition: all 0.3s;
+    .bip-log { display: flex; flex-direction: column; gap: 0; }
+    .bip-entry {
+      display: grid; grid-template-columns: 90px 1fr; gap: 1.5rem;
+      padding: 1.5rem 0; border-bottom: 1px solid var(--border);
     }
-    .toolkit-pill:hover { border-color: var(--accent); color: var(--accent); }
+    .bip-entry:first-child { border-top: 1px solid var(--border); }
+    .bip-date { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); padding-top: 0.2rem; }
+    .bip-entry-content h4 { font-size: 0.95rem; font-weight: 500; color: var(--text); margin-bottom: 0.35rem; }
+    .bip-entry-content p { font-size: 0.85rem; line-height: 1.55; color: var(--text-muted); }
 
     /* ══════════════════════════════════════════════════
        6. CONTACT
        ══════════════════════════════════════════════════ */
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 3.5rem; }
-    .contact-text { font-size: 1.05rem; line-height: 1.8; color: var(--text-muted); max-width: 480px; }
-    .contact-methods { display: flex; flex-direction: column; gap: 2rem; margin-top: 2.5rem; }
-    .contact-method { display: flex; align-items: center; gap: 1rem; }
-    .contact-method-icon {
+    .contact-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; margin-top: 3.5rem; align-items: start;
+    }
+    .contact-text { font-size: 1.05rem; line-height: 1.8; color: var(--text-muted); }
+    .contact-text p + p { margin-top: 1.5rem; }
+    .contact-text strong { color: var(--text); font-weight: 500; }
+    .contact-cta-wrap { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2.5rem; }
+
+    .contact-aside { display: flex; flex-direction: column; gap: 2rem; }
+    .contact-detail { display: flex; align-items: flex-start; gap: 1.25rem; }
+    .contact-detail-icon {
       width: 44px; height: 44px; border: 1px solid var(--border); border-radius: 4px;
       display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      color: var(--accent);
     }
-    .contact-method-icon svg { width: 18px; height: 18px; color: var(--accent); }
-    .contact-method-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); }
-    .contact-method-value { font-size: 1rem; color: var(--text); margin-top: 0.15rem; }
-    .contact-method-value a { color: var(--text); text-decoration: none; transition: color 0.3s; }
-    .contact-method-value a:hover { color: var(--accent); }
-
-    .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-    .form-field { display: flex; flex-direction: column; gap: 0.5rem; }
-    .form-field label {
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim);
-    }
-    .form-field input, .form-field textarea {
-      background: var(--surface); border: 1px solid var(--border); border-radius: 2px;
-      padding: 0.85rem 1rem; font-family: var(--sans); font-size: 0.9rem; color: var(--text);
-      transition: border-color 0.3s; outline: none;
-    }
-    .form-field input:focus, .form-field textarea:focus { border-color: var(--accent); }
-    .form-field textarea { resize: vertical; min-height: 140px; }
-    .form-field input::placeholder, .form-field textarea::placeholder { color: var(--text-dim); }
-
-    /* Form status */
-    .form-status { font-size: 0.9rem; padding: 0.75rem 1rem; border-radius: 2px; display: none; }
-    .form-status.success { display: block; background: #1a2e1a; color: #7ec87e; border: 1px solid #2a4a2a; }
-    .form-status.error { display: block; background: #2e1a1a; color: #c87e7e; border: 1px solid #4a2a2a; }
-
-    /* ══════════════════════════════════════════════════
-       FINAL CTA
-       ══════════════════════════════════════════════════ */
-    .final-cta {
-      text-align: center; padding: 6rem 3.5rem; max-width: 1400px; margin: 0 auto;
-      position: relative; z-index: 1;
-    }
-    .final-cta h2 {
-      font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.5rem);
-      line-height: 1.1; color: var(--text); margin-bottom: 1.5rem;
-    }
-    .final-cta h2 em { font-style: italic; color: var(--accent); }
-    .final-cta p { font-size: 1.05rem; color: var(--text-muted); max-width: 520px; margin: 0 auto 2.5rem; line-height: 1.7; }
-    .final-cta-actions { display: flex; gap: 1rem; justify-content: center; }
+    .contact-detail-icon svg { width: 18px; height: 18px; }
+    .contact-detail-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); }
+    .contact-detail-value { font-size: 1rem; color: var(--text); margin-top: 0.2rem; }
+    .contact-detail-value a { color: var(--text); text-decoration: none; transition: color 0.3s; }
+    .contact-detail-value a:hover { color: var(--accent); }
 
     /* ══════════════════════════════════════════════════
        FOOTER
@@ -487,12 +381,11 @@
       .hero-photo { max-height: none; order: -1; }
       .hero-photo img { max-width: 360px; margin: 0 auto; object-position: top; }
       .hero-content { padding-bottom: 3rem; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .approach-grid { grid-template-columns: 1fr; }
-      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .scores-grid { grid-template-columns: 1fr; }
-      .spotlight { grid-template-columns: 1fr; gap: 3rem; }
+      .bedrijven-grid { grid-template-columns: 1fr; }
+      .aanbod-grid { grid-template-columns: 1fr; }
+      .aanpak-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .bip-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
     }
     @media (max-width: 768px) {
       nav { padding: 1.2rem 1.5rem; }
@@ -512,12 +405,13 @@
       .hero-stats-bar { padding: 0 1.5rem; }
       .section-pad { padding: 4rem 1.5rem; }
       .stats { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-      .form-row { grid-template-columns: 1fr; }
       .side-label { display: none; }
       .footer { flex-direction: column; gap: 1.5rem; text-align: center; }
       .hero-photo { max-height: none; }
       .hero-photo img { max-width: 280px; object-position: top; }
       .hero-actions { flex-direction: column; }
+      .bip-entry { grid-template-columns: 70px 1fr; gap: 1rem; }
+      .vrij-step { grid-template-columns: 56px 1fr; gap: 1rem; }
     }
   </style>
 </head>
@@ -526,6 +420,9 @@
   <!-- Ambient light -->
   <div class="ambient ambient--warm"></div>
   <div class="ambient ambient--cool"></div>
+
+  <!-- Side label -->
+  <div class="side-label">raywesterhout.nl</div>
 
   <!-- ════════════════════════════════════════════════
        NAVIGATION
@@ -536,9 +433,9 @@
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#diensten">Diensten</a></li>
-      <li><a href="#over">Over mij</a></li>
+      <li><a href="#bedrijven">De 3 bedrijven</a></li>
       <li><a href="#aanpak">Aanpak</a></li>
+      <li><a href="#aanbod">Aanbod</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -548,34 +445,25 @@
        ════════════════════════════════════════════════ -->
   <section class="hero">
     <div class="hero-content">
-      <div class="overline">
-        <span>Consultant &middot; Coach &middot; Builder</span>
-      </div>
-
+      <div class="overline"><span>AI-implementatie voor MKB</span></div>
       <h1 class="hero-title">
-        Meer winst. Meer richting.<br>
-        <em>Minder gedoe.</em>
+        Ik bouw<br>
+        <em>3 bedrijven</em><br>
+        met AI.
       </h1>
-
       <p class="hero-subtitle">
-        Ik help horecaondernemers hun menu winstgevend maken,
-        mannen die vastzitten hun koers terugvinden, en bedrijven
-        afrekenen met tijdverspilling door AI. Geen theorie. Resultaat.
+        Meer dan 20 jaar in de horeca. Zelf AI geleerd. Nu help ik andere ondernemers hetzelfde te doen — sneller, met minder verspilling en meer resultaat.
       </p>
-
       <div class="hero-actions">
-        <a href="#diensten" class="btn btn--primary">
-          Bekijk hoe ik je kan helpen
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-          </svg>
+        <a href="quickscan.html" class="btn btn--primary">
+          AI Quickscan — EUR 500
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
         </a>
-        <a href="#contact" class="btn btn--outline">Neem contact op</a>
+        <a href="#bedrijven" class="btn btn--outline">Volg de reis</a>
       </div>
     </div>
-
     <div class="hero-photo">
-      <img src="images/raymond-hero.png" alt="Raymond Westerhout">
+      <img src="images/raymond-hero.png" alt="Raymond Westerhout" loading="eager">
     </div>
   </section>
 
@@ -584,594 +472,389 @@
     <div class="hero-stats-divider"></div>
     <div class="stats">
       <div class="stat">
-        <div class="stat-value">3</div>
-        <div class="stat-label">Disciplines</div>
-      </div>
-      <div class="stat">
         <div class="stat-value">20+</div>
-        <div class="stat-label">Jaar ervaring</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">100+</div>
-        <div class="stat-label">Klanten geholpen</div>
+        <div class="stat-label">Jaar horeca-ervaring</div>
       </div>
       <div class="stat">
         <div class="stat-value">3</div>
-        <div class="stat-label">Gratis scoretests</div>
+        <div class="stat-label">Bedrijven in opbouw</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">MKB</div>
+        <div class="stat-label">Doelgroep 5–50 FTE</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">NL</div>
+        <div class="stat-label">Build in public</div>
       </div>
     </div>
   </div>
 
-
-  <!-- ════════════════════════════════════════════════
-       TRUSTED BY
-       ════════════════════════════════════════════════ -->
-  <div class="trusted-bar">
-    <div class="trusted-label">Werkt met</div>
-    <div class="trusted-logos">
-      <span class="trusted-logo">Bij Isabelle</span>
-      <span class="trusted-separator"></span>
-      <span class="trusted-logo">Bij Albert</span>
-      <span class="trusted-separator"></span>
-      <span class="trusted-logo">Culinair Advies</span>
-      <span class="trusted-separator"></span>
-      <span class="trusted-logo">Levenssmaak</span>
-    </div>
-  </div>
-
-  <!-- ════════════════════════════════════════════════
-       2. DIENSTEN
-       ════════════════════════════════════════════════ -->
   <div class="section-divider"></div>
 
-  <section id="diensten" class="section-pad">
+  <!-- ════════════════════════════════════════════════
+       2. DE 3 BEDRIJVEN
+       ════════════════════════════════════════════════ -->
+  <section class="section-pad" id="bedrijven">
     <div class="reveal">
-      <div class="overline"><span>Waar ik aan werk</span></div>
-      <h2 class="section-title">Drie domeinen.<br><em>E&eacute;n aanpak.</em></h2>
+      <div class="overline"><span>Wat ik bouw</span></div>
+      <h2 class="section-title">De <em>3 bedrijven</em></h2>
     </div>
+    <div class="bedrijven-grid">
 
-    <div class="projects-grid">
-
-      <!-- Dienst 1: Horeca Consultancy -->
-      <div class="project-card reveal">
-        <div class="project-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.871c1.355 0 2.697.056 4.024.166C17.155 8.51 18 9.473 18 10.608v2.513M15 8.25v-1.5m-6 1.5v-1.5m12 9.75l-1.5.75a3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0L3 16.5m15-3.379a48.474 48.474 0 00-6-.371c-2.032 0-4.034.126-6 .371m12 0c.39.049.777.102 1.163.16 1.07.16 1.837 1.094 1.837 2.175v5.169c0 .621-.504 1.125-1.125 1.125H4.125A1.125 1.125 0 013 20.625v-5.17c0-1.08.768-2.014 1.837-2.174A47.78 47.78 0 016 13.12M12.265 3.11a.375.375 0 11-.53 0L12 2.845l.265.265z"/>
-          </svg>
-        </div>
-        <div class="project-label">Horeca Consultancy</div>
-        <h3 class="project-title">Culinair advies &<br>menu-engineering</h3>
-        <p class="project-desc">
-          Je foodcost is te hoog. Je team improviseert. Je menu mist structuur.
-          Ik reken daarmee af. Scherpe seizoensconcepten, doorgerekende
-          recepturen en een keuken die draait. Kwartaaltrajecten met
-          direct resultaat.
+      <div class="bedrijf-card reveal">
+        <div class="bedrijf-number">01</div>
+        <span class="bedrijf-status bedrijf-status--actief">Actief</span>
+        <h3 class="bedrijf-title">Horeca Consultancy</h3>
+        <p class="bedrijf-desc">
+          Meer dan 20 jaar gewerkt als chef en culinair adviseur. Van menuontwikkeling tot keukenbegeleiding. Nu AI-powered: snellere analyses, betere rapporten, scherpere aanbevelingen.
         </p>
-        <div class="project-tags">
-          <span class="project-tag">Menuontwikkeling</span>
-          <span class="project-tag">Kostprijsanalyse</span>
-          <span class="project-tag">Recepturen</span>
+        <div class="bedrijf-tags">
+          <span class="bedrijf-tag">Menuontwikkeling</span>
+          <span class="bedrijf-tag">Keukenbegeleiding</span>
+          <span class="bedrijf-tag">AI-gestaafd</span>
         </div>
-        <a href="https://culinaireconsultant.nl" class="project-cta" target="_blank" rel="noopener">
-          Meer over consultancy
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-          </svg>
-        </a>
       </div>
 
-      <!-- Dienst 2: Coaching -->
-      <div class="project-card reveal">
-        <div class="project-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
-          </svg>
-        </div>
-        <div class="project-label">Levenssmaak</div>
-        <h3 class="project-title">Coaching voor mannen<br>die meer willen</h3>
-        <p class="project-desc">
-          Je hebt alles. Behalve voldoening. Je functioneert, maar je leeft niet.
-          Via de VRIJ-methode pak je aan wat je al jaren vermijdt.
-          Geen troostende woorden. Confrontatie die werkt.
+      <div class="bedrijf-card reveal">
+        <div class="bedrijf-number">02</div>
+        <span class="bedrijf-status bedrijf-status--nieuw">Nieuw</span>
+        <h3 class="bedrijf-title">AI-Implementatie voor MKB</h3>
+        <p class="bedrijf-desc">
+          Ik help bedrijven van 5 tot 50 medewerkers met het implementeren van AI-automatisering. Geen PowerPoint-strategie — ik bouw het, ik test het, ik lever het op.
         </p>
-        <div class="project-tags">
-          <span class="project-tag">VRIJ-methode</span>
-          <span class="project-tag">1-op-1 coaching</span>
-          <span class="project-tag">WAKKER training</span>
+        <div class="bedrijf-tags">
+          <span class="bedrijf-tag">Automatisering</span>
+          <span class="bedrijf-tag">AI-tools</span>
+          <span class="bedrijf-tag">Claude / Make / n8n</span>
         </div>
-        <a href="#wakker" class="project-cta">
-          Meer over coaching
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-          </svg>
-        </a>
       </div>
 
-      <!-- Dienst 3: AI & Automatisering -->
-      <div class="project-card reveal">
-        <div class="project-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z"/>
-          </svg>
-        </div>
-        <div class="project-label">AI & Automatisering</div>
-        <h3 class="project-title">AI-integratie voor<br>horecabedrijven</h3>
-        <p class="project-desc">
-          Je verspilt uren aan werk dat een machine beter kan.
-          Recepturen, calculaties, content, operationele rompslomp.
-          Ik bouw AI-systemen die dat overnemen. Jij focust op
-          wat ertoe doet.
+      <div class="bedrijf-card reveal">
+        <div class="bedrijf-number">03</div>
+        <span class="bedrijf-status bedrijf-status--bouw">In ontwikkeling</span>
+        <h3 class="bedrijf-title">SaaS Product</h3>
+        <p class="bedrijf-desc">
+          Een software-product dat voortkomt uit de lessen van de eerste twee bedrijven. Nog in de idee- en validatiefase. Volg de reis op LinkedIn.
         </p>
-        <div class="project-tags">
-          <span class="project-tag">AI Workflows</span>
-          <span class="project-tag">Automatisering</span>
-          <span class="project-tag">Horeca Tools</span>
+        <div class="bedrijf-tags">
+          <span class="bedrijf-tag">SaaS</span>
+          <span class="bedrijf-tag">In validatie</span>
+          <span class="bedrijf-tag">Volg de reis</span>
         </div>
-        <a href="#contact" class="project-cta">
-          Meer over AI-integratie
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-          </svg>
-        </a>
       </div>
 
     </div>
   </section>
 
-
-  <!-- ════════════════════════════════════════════════
-       ONTDEK JE SCORE
-       ════════════════════════════════════════════════ -->
   <div class="section-divider"></div>
 
-  <section class="section-pad">
+  <!-- ════════════════════════════════════════════════
+       3. MIJN AANPAK — VRIJ-METHODE
+       ════════════════════════════════════════════════ -->
+  <section class="section-pad" id="aanpak">
     <div class="reveal">
-      <div class="overline"><span>Ontdek waar je staat</span></div>
-      <h2 class="section-title">Geen gevoel.<br><em>Feiten.</em></h2>
+      <div class="overline"><span>Hoe ik denk</span></div>
+      <h2 class="section-title">De <em>VRIJ-methode</em></h2>
     </div>
-
-    <div class="scores-grid">
-
-      <div class="score-card reveal">
-        <div class="score-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.871c1.355 0 2.697.056 4.024.166C17.155 8.51 18 9.473 18 10.608v2.513M15 8.25v-1.5m-6 1.5v-1.5m12 9.75l-1.5.75a3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0L3 16.5m15-3.379a48.474 48.474 0 00-6-.371c-2.032 0-4.034.126-6 .371m12 0c.39.049.777.102 1.163.16 1.07.16 1.837 1.094 1.837 2.175v5.169c0 .621-.504 1.125-1.125 1.125H4.125A1.125 1.125 0 013 20.625v-5.17c0-1.08.768-2.014 1.837-2.174A47.78 47.78 0 016 13.12M12.265 3.11a.375.375 0 11-.53 0L12 2.845l.265.265z"/>
-          </svg>
-        </div>
-        <h3>Horeca Score</h3>
-        <p>Ontdek in 10 vragen hoe jouw restaurant scoort op menustructuur, kostprijs en operatie.</p>
-        <a href="https://horeca-score.vercel.app/" class="btn btn--outline" target="_blank" rel="noopener">
-          Bereken je score
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-        </a>
+    <div class="aanpak-grid">
+      <div class="aanpak-intro reveal">
+        <p>
+          Ik heb de VRIJ-methode niet bedacht om hem te verkopen. Het is de manier waarop ik zelf denk — in mijn horeca-werk, in mijn AI-projecten, in alles wat ik opbouw.
+        </p>
+        <p>
+          <strong>Verkennen voor je handelt. Ruimte creëren voor wat werkt. In beweging komen zonder te wachten op perfectie. Jezelf integreren in wat je bouwt.</strong>
+        </p>
+        <p>
+          Die volgorde zit in elk project. In elke AI-implementatie die ik doe. Het is geen methode voor op een poster — het is een manier van werken.
+        </p>
       </div>
-
-      <div class="score-card reveal">
-        <div class="score-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
-          </svg>
+      <div class="vrij-steps reveal">
+        <div class="vrij-step">
+          <div class="vrij-letter">V</div>
+          <div class="vrij-content">
+            <h3>Verkennen</h3>
+            <p>Begrijp het systeem voordat je het aanpast. Bij AI-implementatie: eerst in kaart brengen wat er nu al werkt, en waar de echte tijdvreters zitten.</p>
+          </div>
         </div>
-        <h3>Doorbraak Score</h3>
-        <p>In 8 vragen ontdek je waar jij staat en wat de volgende stap is om los te breken.</p>
-        <a href="#contact" class="btn btn--outline">
-          Binnenkort beschikbaar
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-        </a>
-      </div>
-
-      <div class="score-card reveal">
-        <div class="score-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z"/>
-          </svg>
+        <div class="vrij-step">
+          <div class="vrij-letter">R</div>
+          <div class="vrij-content">
+            <h3>Ruimte creëren</h3>
+            <p>Verwijder wat in de weg zit. Processen die handwerk vragen dat een tool beter kan, routines die energie kosten zonder waarde te leveren.</p>
+          </div>
         </div>
-        <h3>AI Readiness Score</h3>
-        <p>Ontdek in 10 vragen hoe klaar jouw horecabedrijf is voor AI en automatisering.</p>
-        <a href="#contact" class="btn btn--outline">
-          Binnenkort beschikbaar
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-        </a>
+        <div class="vrij-step">
+          <div class="vrij-letter">I</div>
+          <div class="vrij-content">
+            <h3>In beweging komen</h3>
+            <p>Niet wachten op de perfecte oplossing. De eerste automatisering live zetten, feedback ophalen, bijschaven. Actie boven analyse.</p>
+          </div>
+        </div>
+        <div class="vrij-step">
+          <div class="vrij-letter">J</div>
+          <div class="vrij-content">
+            <h3>Jezelf integreren</h3>
+            <p>AI werkt alleen als het past bij hoe jij en je team werken. Geen black box — je begrijpt wat er gebeurt en je hebt de controle.</p>
+          </div>
+        </div>
       </div>
-
     </div>
   </section>
 
-
-  <!-- ════════════════════════════════════════════════
-       WAKKER TRAINING SPOTLIGHT
-       ════════════════════════════════════════════════ -->
   <div class="section-divider"></div>
 
-  <section id="wakker" class="section-pad">
+  <!-- ════════════════════════════════════════════════
+       4. AANBOD
+       ════════════════════════════════════════════════ -->
+  <section class="section-pad" id="aanbod">
     <div class="reveal">
-      <div class="overline"><span>Training</span></div>
-      <h2 class="section-title">Word <em>wakker</em></h2>
+      <div class="overline"><span>Samenwerken</span></div>
+      <h2 class="section-title">Wat ik <em>aanbied</em></h2>
     </div>
+    <div class="aanbod-grid">
 
-    <div class="spotlight reveal">
-      <div class="spotlight-content">
-        <h3>De WAKKER Training<br>voor mannen die <em>meer willen</em></h3>
-        <div class="spotlight-price">
-          <span class="amount">&euro;197</span>
-          <span class="label">eenmalig</span>
+      <div class="aanbod-card reveal">
+        <div class="aanbod-name">AI Quickscan</div>
+        <div class="aanbod-price">
+          <span class="aanbod-price-amount">500</span>
+          <span class="aanbod-price-label">EUR</span>
         </div>
-        <ul class="spotlight-bullets">
-          <li>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
-            Ontdek wat je werkelijk tegenhoudt &mdash; voorbij de oppervlakte
-          </li>
-          <li>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
-            Krijg een helder kader om richting te bepalen
-          </li>
-          <li>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
-            Praktische stappen om direct in beweging te komen
-          </li>
-          <li>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
-            Gebaseerd op de VRIJ-methode &mdash; rauw en confronterend
-          </li>
+        <p class="aanbod-desc">Een grondige audit van je bedrijfsprocessen, gevolgd door een concreet rapport met de vijf beste AI-kansen voor jouw situatie.</p>
+        <ul class="aanbod-features">
+          <li>Intake-gesprek van 60 minuten</li>
+          <li>Analyse van huidige processen</li>
+          <li>Rapport met top 5 automatiseringskansen</li>
+          <li>Geschatte tijdsbesparing per kans</li>
+          <li>Concrete toolkeuze en aanpak</li>
         </ul>
-        <a href="#contact" class="btn btn--primary">
-          Start de WAKKER training
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        <div class="aanbod-meta">Doorlooptijd: 2–3 werkdagen</div>
+        <a href="quickscan.html" class="aanbod-cta">
+          Quickscan aanvragen
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
         </a>
       </div>
 
-      <div class="spotlight-visual">
-        <img src="images/raymond-wakker.jpg"
-             alt="Raymond Westerhout — WAKKER Training" loading="lazy">
-        <div class="spotlight-badge">Nieuw</div>
+      <div class="aanbod-card aanbod-card--featured reveal">
+        <div class="aanbod-badge">Meest gekozen</div>
+        <div class="aanbod-name">AI Sprint</div>
+        <div class="aanbod-price">
+          <span class="aanbod-price-amount">5.000</span>
+          <span class="aanbod-price-label">EUR</span>
+        </div>
+        <p class="aanbod-desc">Een automatisering volledig geimplementeerd en werkend opgeleverd. Geen plan, geen advies — het werkt als ik klaar ben.</p>
+        <ul class="aanbod-features">
+          <li>Keuze en scope van automatisering in week 1</li>
+          <li>Bouw, test en implementatie in week 2</li>
+          <li>Overdracht en korte training voor je team</li>
+          <li>2 weken nazorg na oplevering</li>
+        </ul>
+        <div class="aanbod-meta">Doorlooptijd: 2 weken</div>
+        <a href="#contact" class="aanbod-cta">
+          Sprint bespreken
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
       </div>
+
+      <div class="aanbod-card reveal">
+        <div class="aanbod-name">AI Transformatie</div>
+        <div class="aanbod-price">
+          <span class="aanbod-price-amount">10–15k</span>
+          <span class="aanbod-price-label">EUR</span>
+        </div>
+        <p class="aanbod-desc">Drie tot vijf automatiseringen, een centraal dashboard en training voor je team. Voor bedrijven die serieus werk willen maken van AI.</p>
+        <ul class="aanbod-features">
+          <li>Uitgebreide quickscan en roadmap</li>
+          <li>3–5 automatiseringen geimplementeerd</li>
+          <li>Centraal dashboard voor overzicht</li>
+          <li>Training voor teamleden</li>
+          <li>Maandelijkse check-in gedurende 3 maanden</li>
+        </ul>
+        <div class="aanbod-meta">Doorlooptijd: 4–6 weken</div>
+        <a href="#contact" class="aanbod-cta">
+          Transformatie bespreken
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+      </div>
+
     </div>
   </section>
 
-
-  <!-- ════════════════════════════════════════════════
-       3. OVER MIJ
-       ════════════════════════════════════════════════ -->
   <div class="section-divider"></div>
 
-  <section id="over" class="section-pad">
-    <div class="reveal">
-      <div class="overline"><span>Over mij</span></div>
-      <h2 class="section-title">20 jaar keuken.<br><em>Nul bullshit.</em></h2>
-    </div>
-
-    <div class="about-grid reveal">
-      <div class="about-photo">
-        <img src="images/raymond-about.jpg"
-             alt="Raymond Westerhout" loading="lazy">
-      </div>
-
-      <div class="about-right">
-        <div class="about-text">
-          <p>
-            Ik ben Raymond Westerhout. Twintig jaar professionele keuken.
-            Daar leer je drie dingen: <strong>precisie, structuur en de ballen
-            om te blijven verbeteren</strong> als het oncomfortabel wordt.
-          </p>
-          <p>
-            Die mentaliteit neem ik overal mee naartoe. Een menu dat niet rendeert?
-            Ik reken het door en maak het scherp. Een man die vastloopt? Ik confronteer
-            hem met wat hij vermijdt. Een bedrijf dat tijd verspilt? Ik automatiseer
-            wat geen mens hoeft te doen.
-          </p>
-          <p>
-            Mijn kracht zit niet in &eacute;&eacute;n vak, maar in het vermogen om
-            <strong>verbindingen te leggen waar anderen ze niet zien</strong>.
-            Data en intu&iuml;tie. Technologie en ambacht. Strategie en uitvoering.
-          </p>
-        </div>
-
-        <div class="about-details">
-          <div class="detail-block">
-            <h4>Kernwaarden</h4>
-            <ul>
-              <li>Vrijheid in werk en leven</li>
-              <li>Waarheid boven comfort</li>
-              <li>Diepgang boven oppervlakkige motivatie</li>
-              <li>Bouwen voor de lange termijn</li>
-            </ul>
-          </div>
-
-          <div class="detail-block">
-            <h4>Expertise</h4>
-            <ul>
-              <li>Culinair advies & menu-engineering</li>
-              <li>Personal coaching & identiteitswerk</li>
-              <li>AI-workflows & procesautomatisering</li>
-              <li>Content strategie & merkopbouw</li>
-            </ul>
-          </div>
-
-          <div class="detail-block">
-            <h4>Locatie</h4>
-            <p>Nederland, CET-tijdzone<br>Remote en on-site beschikbaar</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
   <!-- ════════════════════════════════════════════════
-       4. HOE IK WERK
+       5. BUILD IN PUBLIC
        ════════════════════════════════════════════════ -->
-  <div class="section-divider"></div>
-
-  <section id="aanpak" class="section-pad">
+  <section class="section-pad" id="buildinpublic">
     <div class="reveal">
-      <div class="overline"><span>Aanpak</span></div>
-      <h2 class="section-title">Hoe ik <em>werk</em></h2>
+      <div class="overline"><span>Transparantie</span></div>
+      <h2 class="section-title">Volg <em>de reis</em></h2>
     </div>
-
-    <div class="approach-grid">
-
-      <div class="approach-card reveal">
-        <div class="approach-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/>
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-          </svg>
-        </div>
-        <h3>Observeren & begrijpen</h3>
+    <div class="bip-inner">
+      <div class="bip-content reveal">
         <p>
-          Ik begin nooit met oplossingen. Eerst begrijp ik het systeem:
-          de keuken, het bedrijf, de persoon. Wat werkt? Wat niet?
-          Waar zit de hefboom?
+          Ik deel alles: wat werkt, wat niet werkt, hoeveel omzet er binnenkomt, welke fouten ik maak. Niet voor de likes — maar omdat ik geloof dat je sneller leert van iemand die het nu doet dan van iemand die het al tien jaar geleden deed.
         </p>
-      </div>
-
-      <div class="approach-card reveal">
-        <div class="approach-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z"/>
-          </svg>
-        </div>
-        <h3>Ontwerpen & structureren</h3>
         <p>
-          Elk project krijgt een helder kader. Ik denk in systemen,
-          niet in losse acties. Of het nu een menukaart is, een
-          coachingtraject of een AI-workflow — structuur is de basis.
+          <strong>De ambitie: van EUR 8.000 naar EUR 100.000 per maand.</strong> Ik bouw dat live, in het openbaar, op LinkedIn.
         </p>
-      </div>
-
-      <div class="approach-card reveal">
-        <div class="approach-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.58-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
-          </svg>
-        </div>
-        <h3>Bouwen & leveren</h3>
         <p>
-          Strategie zonder uitvoering is niets. Ik lever. Recepturen,
-          systemen, trainingen, tools — concrete output waar je
-          direct mee aan de slag kunt.
+          Als je zelf nadenkt over AI in je bedrijf, of gewoon wil zien hoe dit eruitziet van binnenuit — volg me dan. Geen algoritme-optimalisatie, geen dagelijkse productiviteitstips. Gewoon wat er echt gebeurt.
         </p>
+        <div class="bip-actions">
+          <a href="https://linkedin.com/in/raywesterhout" target="_blank" rel="noopener" class="btn btn--primary">
+            Volg op LinkedIn
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+        </div>
       </div>
-
-    </div>
-  </section>
-
-
-  <!-- ════════════════════════════════════════════════
-       5. TOOLKIT
-       ════════════════════════════════════════════════ -->
-  <div class="section-divider"></div>
-
-  <section class="section-pad">
-    <div class="reveal">
-      <div class="overline"><span>Toolkit</span></div>
-      <h2 class="section-title">Waarmee ik <em>bouw</em></h2>
-    </div>
-
-    <div class="reveal">
-      <div class="toolkit-row">
-        <span class="toolkit-pill">Claude AI</span>
-        <span class="toolkit-pill">Claude Code</span>
-        <span class="toolkit-pill">Python</span>
-        <span class="toolkit-pill">Next.js</span>
-        <span class="toolkit-pill">TypeScript</span>
-        <span class="toolkit-pill">Vercel</span>
-        <span class="toolkit-pill">Playwright</span>
-        <span class="toolkit-pill">Notion</span>
-        <span class="toolkit-pill">Airtable</span>
-        <span class="toolkit-pill">Remotion</span>
+      <div class="bip-log reveal">
+        <div class="bip-entry">
+          <div class="bip-date">Apr 2025</div>
+          <div class="bip-entry-content">
+            <h4>Website herschreven</h4>
+            <p>Van statische visitekaartje naar hub voor AI-implementatiediensten. Quickscan-pagina live.</p>
+          </div>
+        </div>
+        <div class="bip-entry">
+          <div class="bip-date">Mrt 2025</div>
+          <div class="bip-entry-content">
+            <h4>Eerste AI-tools live voor horeca-klanten</h4>
+            <p>Rapportage en menu-analyse geautomatiseerd. Tijdsbesparing: 4–6 uur per klant per maand.</p>
+          </div>
+        </div>
+        <div class="bip-entry">
+          <div class="bip-date">Feb 2025</div>
+          <div class="bip-entry-content">
+            <h4>Claude Code geleerd</h4>
+            <p>Zonder programmeerachtergrond de eerste tools gebouwd. Eerste site deployed op Vercel.</p>
+          </div>
+        </div>
+        <div class="bip-entry">
+          <div class="bip-date">Jan 2025</div>
+          <div class="bip-entry-content">
+            <h4>Besluit genomen</h4>
+            <p>AI niet alleen voor mezelf gebruiken. Een tweede bedrijf bouwen rondom implementatie voor MKB.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
+  <div class="section-divider"></div>
 
   <!-- ════════════════════════════════════════════════
        6. CONTACT
        ════════════════════════════════════════════════ -->
-  <div class="section-divider"></div>
-
-  <section id="contact" class="section-pad">
+  <section class="section-pad" id="contact">
     <div class="reveal">
-      <div class="overline"><span>Contact</span></div>
-      <h2 class="section-title">Laten we <em>praten</em></h2>
+      <div class="overline"><span>Aan de slag</span></div>
+      <h2 class="section-title">Stuur een <em>bericht</em></h2>
     </div>
-
-    <div class="contact-grid">
-      <div class="reveal">
-        <p class="contact-text">
-          Geen vrijblijvend kennismakingsgesprek. Geen verkooppraatje.
-          Vertel me wat er speelt. Ik zeg je eerlijk of en hoe ik kan helpen.
+    <div class="contact-inner">
+      <div class="contact-text reveal">
+        <p>
+          De makkelijkste manier om te beginnen is een directe bericht op LinkedIn. Geen formulier, geen salesproces — gewoon een gesprek.
         </p>
-
-        <div class="contact-methods">
-          <div class="contact-method">
-            <div class="contact-method-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
-              </svg>
-            </div>
-            <div>
-              <div class="contact-method-label">Email</div>
-              <div class="contact-method-value"><a href="mailto:info@raymondwesterhout.nl">info@raymondwesterhout.nl</a></div>
-            </div>
+        <p>
+          Vertel me kort wat je bedrijf doet, hoeveel mensen er werken en wat je grootste tijdvreter is op dit moment. Dan geef ik je al in dat eerste gesprek een eerlijk beeld of AI daar iets aan kan veranderen.
+        </p>
+        <p>
+          <strong>Geen verkoopgesprek. Geen pitch. Als het past, hoor je dat. Als het niet past, zeg ik dat ook.</strong>
+        </p>
+        <div class="contact-cta-wrap">
+          <a href="https://linkedin.com/in/raywesterhout" target="_blank" rel="noopener" class="btn btn--primary">
+            Stuur een DM op LinkedIn
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+          <a href="quickscan.html" class="btn btn--outline">
+            Of start met een Quickscan
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="contact-aside reveal">
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           </div>
-
-          <div class="contact-method">
-            <div class="contact-method-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"/>
-              </svg>
-            </div>
-            <div>
-              <div class="contact-method-label">LinkedIn</div>
-              <div class="contact-method-value"><a href="https://nl.linkedin.com/in/raymond-westerhout" target="_blank" rel="noopener">/in/raymond-westerhout</a></div>
-            </div>
+          <div>
+            <div class="contact-detail-label">E-mail</div>
+            <div class="contact-detail-value"><a href="mailto:ray@raywesterhout.nl">ray@raywesterhout.nl</a></div>
           </div>
-
-          <div class="contact-method">
-            <div class="contact-method-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"/>
-              </svg>
-            </div>
-            <div>
-              <div class="contact-method-label">Instagram</div>
-              <div class="contact-method-value"><a href="https://www.instagram.com/raywesterhout/" target="_blank" rel="noopener">@raywesterhout</a></div>
-            </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           </div>
-
-          <div class="contact-method">
-            <div class="contact-method-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
-              </svg>
-            </div>
-            <div>
-              <div class="contact-method-label">Locatie</div>
-              <div class="contact-method-value">Nederland</div>
-            </div>
+          <div>
+            <div class="contact-detail-label">LinkedIn</div>
+            <div class="contact-detail-value"><a href="https://linkedin.com/in/raywesterhout" target="_blank" rel="noopener">linkedin.com/in/raywesterhout</a></div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">Reactietijd</div>
+            <div class="contact-detail-value">Binnen 24 uur op werkdagen</div>
           </div>
         </div>
       </div>
-
-      <div class="reveal">
-        <a href="mailto:info@raymondwesterhout.nl?subject=Contact via raywesterhout.nl" class="btn btn--primary" style="width: fit-content;">
-          Stuur een e-mail
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-          </svg>
-        </a>
-      </div>
     </div>
   </section>
 
-
-  <!-- ════════════════════════════════════════════════
-       SCORE REPEAT CTA
-       ════════════════════════════════════════════════ -->
   <div class="section-divider"></div>
-
-  <section class="score-cta-banner reveal">
-    <h2>Hoe professioneel draait <em>jouw keuken?</em></h2>
-    <p>
-      Doe de gratis Horeca Score quiz en ontdek in 2 minuten waar de winst ligt.
-    </p>
-    <a href="https://horeca-score.vercel.app/" class="btn btn--primary" target="_blank" rel="noopener">
-      Start de Horeca Score
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-    </a>
-  </section>
-
-  <!-- ════════════════════════════════════════════════
-       FINAL CTA
-       ════════════════════════════════════════════════ -->
-  <div class="section-divider"></div>
-
-  <section class="final-cta reveal">
-    <h2>Genoeg gelezen.<br><em>Tijd om te beginnen.</em></h2>
-    <p>
-      Je weet al dat er iets moet veranderen. In je keuken, in je leven,
-      of in hoe je werkt. De vraag is niet of. De vraag is wanneer.
-    </p>
-    <div class="final-cta-actions">
-      <a href="#contact" class="btn btn--primary">
-        Neem contact op
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-      </a>
-      <a href="#diensten" class="btn btn--outline">Bekijk diensten</a>
-    </div>
-  </section>
-
 
   <!-- ════════════════════════════════════════════════
        FOOTER
        ════════════════════════════════════════════════ -->
-  <div class="section-divider"></div>
-
   <footer class="footer">
-    <div class="footer-left">&copy; 2026 Ray Westerhout. Alle rechten voorbehouden.</div>
+    <div class="footer-left">
+      &copy; 2025 Raymond Westerhout &mdash; raywesterhout.nl
+    </div>
     <div class="footer-right">
-      <a href="https://www.instagram.com/raywesterhout/" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://nl.linkedin.com/in/raymond-westerhout" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:info@raymondwesterhout.nl">Email</a>
+      <a href="#bedrijven">Bedrijven</a>
+      <a href="#aanbod">Aanbod</a>
+      <a href="quickscan.html">Quickscan</a>
+      <a href="https://linkedin.com/in/raywesterhout" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </footer>
 
-  <!-- Side label -->
-  <div class="side-label">raywesterhout.nl &mdash; 2026</div>
-
-
-  <!-- ════════════════════════════════════════════════
-       SCRIPTS
-       ════════════════════════════════════════════════ -->
   <script>
-    // Sticky nav scroll effect
-    const nav = document.getElementById('navbar');
+    /* ── Nav scroll ── */
+    const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 60);
-    });
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
 
-    // Mobile nav toggle
+    /* ── Hamburger ── */
     const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
+    const navLinks  = document.getElementById('navLinks');
     navToggle.addEventListener('click', () => {
       navToggle.classList.toggle('active');
       navLinks.classList.toggle('open');
     });
-    // Close mobile nav on link click
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
         navToggle.classList.remove('active');
         navLinks.classList.remove('open');
       });
     });
 
-    // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
+    /* ── Scroll-reveal ── */
+    const revealEls = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 80);
-          observer.unobserve(entry.target);
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          e.target.style.transitionDelay = (i * 0.05) + 's';
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
         }
       });
-    }, { threshold: 0.15 });
-    reveals.forEach(el => observer.observe(el));
-
-    // Smooth scroll for nav links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if (href === '#') return;
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
-
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => observer.observe(el));
   </script>
-
 </body>
 </html>

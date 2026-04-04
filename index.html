@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ray Westerhout — AI-implementatie voor MKB</title>
-  <meta name="description" content="Ray Westerhout bouwt 3 bedrijven met AI. 20+ jaar horeca-expertise, nu ingezet voor AI-implementatie bij MKB. Geen theorie. Resultaat.">
+  <title>Ray Westerhout — AI-implementatie die werkt</title>
+  <meta name="description" content="Ray Westerhout helpt MKB-bedrijven 5-15 uur per week besparen met slimme AI-automatisering. 20+ jaar ondernemer, 40+ automations gebouwd. Geen PowerPoints. Werkende systemen.">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Ray Westerhout — Ik bouw 3 bedrijven met AI">
-  <meta property="og:description" content="20+ jaar horeca-expertise, nu ingezet voor AI-implementatie bij MKB. Geen theorie. Resultaat.">
+  <meta property="og:title" content="Ray Westerhout — AI-implementatie die werkt">
+  <meta property="og:description" content="Ik help MKB-bedrijven 5-15 uur per week besparen door slimme automatisering. Geen PowerPoints. Werkende systemen.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://raywesterhout.nl">
   <meta property="og:image" content="https://raywesterhout.nl/images/raymond-hero.png">
@@ -16,8 +16,8 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Ray Westerhout — Ik bouw 3 bedrijven met AI">
-  <meta name="twitter:description" content="20+ jaar horeca-expertise, nu ingezet voor AI-implementatie bij MKB. Geen theorie. Resultaat.">
+  <meta name="twitter:title" content="Ray Westerhout — AI-implementatie die werkt">
+  <meta name="twitter:description" content="Ik help MKB-bedrijven 5-15 uur per week besparen door slimme automatisering. Geen PowerPoints. Werkende systemen.">
   <meta name="twitter:image" content="https://raywesterhout.nl/images/raymond-hero.png">
 
   <!-- Favicon -->
@@ -306,25 +306,26 @@
     .aanbod-cta:hover svg { transform: translateX(4px); }
 
     /* ══════════════════════════════════════════════════
-       5. BUILD IN PUBLIC
+       5. RESULTATEN
        ══════════════════════════════════════════════════ */
-    .bip-inner {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; margin-top: 3.5rem; align-items: center;
+    .resultaten-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3.5rem;
     }
-    .bip-content p { font-size: 1.05rem; line-height: 1.8; color: var(--text-muted); }
-    .bip-content p + p { margin-top: 1.5rem; }
-    .bip-content p strong { color: var(--text); font-weight: 500; }
-    .bip-actions { display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
-
-    .bip-log { display: flex; flex-direction: column; gap: 0; }
-    .bip-entry {
-      display: grid; grid-template-columns: 90px 1fr; gap: 1.5rem;
-      padding: 1.5rem 0; border-bottom: 1px solid var(--border);
+    .resultaat-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 4px;
+      padding: 2.5rem 2rem; position: relative; overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
     }
-    .bip-entry:first-child { border-top: 1px solid var(--border); }
-    .bip-date { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); padding-top: 0.2rem; }
-    .bip-entry-content h4 { font-size: 0.95rem; font-weight: 500; color: var(--text); margin-bottom: 0.35rem; }
-    .bip-entry-content p { font-size: 0.85rem; line-height: 1.55; color: var(--text-muted); }
+    .resultaat-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--accent); transform: scaleX(0); transform-origin: left;
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .resultaat-card:hover { border-color: var(--border-light); transform: translateY(-4px); }
+    .resultaat-card:hover::before { transform: scaleX(1); }
+    .resultaat-value { font-family: var(--serif); font-size: 3rem; color: var(--accent); line-height: 1; margin-bottom: 1rem; }
+    .resultaat-label { font-size: 1rem; font-weight: 500; color: var(--text); margin-bottom: 0.5rem; }
+    .resultaat-desc { font-size: 0.88rem; line-height: 1.65; color: var(--text-muted); }
 
     /* ══════════════════════════════════════════════════
        6. CONTACT
@@ -384,7 +385,7 @@
       .bedrijven-grid { grid-template-columns: 1fr; }
       .aanbod-grid { grid-template-columns: 1fr; }
       .aanpak-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .bip-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .resultaten-grid { grid-template-columns: 1fr; }
       .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
     }
     @media (max-width: 768px) {
@@ -410,7 +411,6 @@
       .hero-photo { max-height: none; }
       .hero-photo img { max-width: 280px; object-position: top; }
       .hero-actions { flex-direction: column; }
-      .bip-entry { grid-template-columns: 70px 1fr; gap: 1rem; }
       .vrij-step { grid-template-columns: 56px 1fr; gap: 1rem; }
     }
   </style>
@@ -433,8 +433,9 @@
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#bedrijven">De 3 bedrijven</a></li>
-      <li><a href="#aanpak">Aanpak</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#aanpak">Werkwijze</a></li>
+      <li><a href="#resultaten">Resultaten</a></li>
       <li><a href="#aanbod">Aanbod</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -447,19 +448,18 @@
     <div class="hero-content">
       <div class="overline"><span>AI-implementatie voor MKB</span></div>
       <h1 class="hero-title">
-        Ik bouw<br>
-        <em>3 bedrijven</em><br>
-        met AI.
+        AI-implementatie<br>
+        <em>die werkt.</em>
       </h1>
       <p class="hero-subtitle">
-        Meer dan 20 jaar in de horeca. Zelf AI geleerd. Nu help ik andere ondernemers hetzelfde te doen — sneller, met minder verspilling en meer resultaat.
+        Ik help MKB-bedrijven 5-15 uur per week besparen door slimme automatisering. Geen PowerPoints. Werkende systemen.
       </p>
       <div class="hero-actions">
         <a href="quickscan.html" class="btn btn--primary">
-          AI Quickscan — EUR 500
+          Doe de gratis AI Quickscan
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
         </a>
-        <a href="#bedrijven" class="btn btn--outline">Volg de reis</a>
+        <a href="#aanbod" class="btn btn--outline">Bekijk het aanbod</a>
       </div>
     </div>
     <div class="hero-photo">
@@ -473,19 +473,19 @@
     <div class="stats">
       <div class="stat">
         <div class="stat-value">20+</div>
-        <div class="stat-label">Jaar horeca-ervaring</div>
+        <div class="stat-label">Jaar ondernemer</div>
       </div>
       <div class="stat">
-        <div class="stat-value">3</div>
-        <div class="stat-label">Bedrijven in opbouw</div>
+        <div class="stat-value">40+</div>
+        <div class="stat-label">Automations gebouwd</div>
       </div>
       <div class="stat">
         <div class="stat-value">MKB</div>
-        <div class="stat-label">Doelgroep 5–50 FTE</div>
+        <div class="stat-label">5-50 medewerkers</div>
       </div>
       <div class="stat">
-        <div class="stat-value">NL</div>
-        <div class="stat-label">Build in public</div>
+        <div class="stat-value">2-3</div>
+        <div class="stat-label">Dagen oplevering</div>
       </div>
     </div>
   </div>
@@ -493,54 +493,54 @@
   <div class="section-divider"></div>
 
   <!-- ════════════════════════════════════════════════
-       2. DE 3 BEDRIJVEN
+       2. MIJN EXPERTISE
        ════════════════════════════════════════════════ -->
-  <section class="section-pad" id="bedrijven">
+  <section class="section-pad" id="expertise">
     <div class="reveal">
-      <div class="overline"><span>Wat ik bouw</span></div>
-      <h2 class="section-title">De <em>3 bedrijven</em></h2>
+      <div class="overline"><span>Waar ik in werk</span></div>
+      <h2 class="section-title">Mijn <em>expertise</em></h2>
     </div>
     <div class="bedrijven-grid">
 
       <div class="bedrijf-card reveal">
         <div class="bedrijf-number">01</div>
-        <span class="bedrijf-status bedrijf-status--actief">Actief</span>
+        <span class="bedrijf-status bedrijf-status--actief">20+ jaar ervaring</span>
         <h3 class="bedrijf-title">Horeca Consultancy</h3>
         <p class="bedrijf-desc">
-          Meer dan 20 jaar gewerkt als chef en culinair adviseur. Van menuontwikkeling tot keukenbegeleiding. Nu AI-powered: snellere analyses, betere rapporten, scherpere aanbevelingen.
+          Twee decennia als chef en culinair adviseur. Menuontwikkeling, keukenoptimalisatie en bedrijfsvoering voor restaurants en horecaondernemers.
         </p>
         <div class="bedrijf-tags">
           <span class="bedrijf-tag">Menuontwikkeling</span>
-          <span class="bedrijf-tag">Keukenbegeleiding</span>
-          <span class="bedrijf-tag">AI-gestaafd</span>
+          <span class="bedrijf-tag">Keukenoptimalisatie</span>
+          <a href="https://culinaireconsultant.nl" target="_blank" rel="noopener" class="bedrijf-tag" style="text-decoration:none;color:var(--accent);border-color:var(--accent);">culinaireconsultant.nl</a>
         </div>
       </div>
 
       <div class="bedrijf-card reveal">
         <div class="bedrijf-number">02</div>
-        <span class="bedrijf-status bedrijf-status--nieuw">Nieuw</span>
-        <h3 class="bedrijf-title">AI-Implementatie voor MKB</h3>
+        <span class="bedrijf-status bedrijf-status--actief">Gespecialiseerd</span>
+        <h3 class="bedrijf-title">AI voor Horeca</h3>
         <p class="bedrijf-desc">
-          Ik help bedrijven van 5 tot 50 medewerkers met het implementeren van AI-automatisering. Geen PowerPoint-strategie — ik bouw het, ik test het, ik lever het op.
+          AI-implementatie specifiek voor restaurants en horecabedrijven. Van receptuurdatabases tot personeelsplanning — automatisering die past bij de keuken.
         </p>
         <div class="bedrijf-tags">
-          <span class="bedrijf-tag">Automatisering</span>
-          <span class="bedrijf-tag">AI-tools</span>
-          <span class="bedrijf-tag">Claude / Make / n8n</span>
+          <span class="bedrijf-tag">Horeca-automatisering</span>
+          <span class="bedrijf-tag">Receptuurdatabase</span>
+          <a href="https://aivoorhoreca.nl" target="_blank" rel="noopener" class="bedrijf-tag" style="text-decoration:none;color:var(--accent);border-color:var(--accent);">aivoorhoreca.nl</a>
         </div>
       </div>
 
       <div class="bedrijf-card reveal">
         <div class="bedrijf-number">03</div>
-        <span class="bedrijf-status bedrijf-status--bouw">In ontwikkeling</span>
-        <h3 class="bedrijf-title">SaaS Product</h3>
+        <span class="bedrijf-status bedrijf-status--actief">Hoofddienst</span>
+        <h3 class="bedrijf-title">AI voor MKB</h3>
         <p class="bedrijf-desc">
-          Een software-product dat voortkomt uit de lessen van de eerste twee bedrijven. Nog in de idee- en validatiefase. Volg de reis op LinkedIn.
+          Automatisering voor elk type MKB-bedrijf van 5 tot 50 medewerkers. Ik bouw het, test het en lever het op — zodat jij er direct mee aan de slag kunt.
         </p>
         <div class="bedrijf-tags">
-          <span class="bedrijf-tag">SaaS</span>
-          <span class="bedrijf-tag">In validatie</span>
-          <span class="bedrijf-tag">Volg de reis</span>
+          <span class="bedrijf-tag">Procesautomatisering</span>
+          <span class="bedrijf-tag">Claude / Make / n8n</span>
+          <span class="bedrijf-tag">2-3 dagen oplevering</span>
         </div>
       </div>
 
@@ -550,23 +550,20 @@
   <div class="section-divider"></div>
 
   <!-- ════════════════════════════════════════════════
-       3. MIJN AANPAK — VRIJ-METHODE
+       3. MIJN WERKWIJZE — VRIJ-METHODE
        ════════════════════════════════════════════════ -->
   <section class="section-pad" id="aanpak">
     <div class="reveal">
-      <div class="overline"><span>Hoe ik denk</span></div>
-      <h2 class="section-title">De <em>VRIJ-methode</em></h2>
+      <div class="overline"><span>Hoe ik werk</span></div>
+      <h2 class="section-title">Mijn <em>werkwijze</em></h2>
     </div>
     <div class="aanpak-grid">
       <div class="aanpak-intro reveal">
         <p>
-          Ik heb de VRIJ-methode niet bedacht om hem te verkopen. Het is de manier waarop ik zelf denk — in mijn horeca-werk, in mijn AI-projecten, in alles wat ik opbouw.
+          Elk project volgt dezelfde aanpak: eerst begrijpen, dan bouwen. Geen langdurige trajecten, geen eindeloze planfases. Binnen 2-3 dagen heb je iets werkends.
         </p>
         <p>
-          <strong>Verkennen voor je handelt. Ruimte creëren voor wat werkt. In beweging komen zonder te wachten op perfectie. Jezelf integreren in wat je bouwt.</strong>
-        </p>
-        <p>
-          Die volgorde zit in elk project. In elke AI-implementatie die ik doe. Het is geen methode voor op een poster — het is een manier van werken.
+          <strong>De VRIJ-methode is hoe ik elk project aanpak — van quickscan tot volledige implementatie.</strong>
         </p>
       </div>
       <div class="vrij-steps reveal">
@@ -574,31 +571,64 @@
           <div class="vrij-letter">V</div>
           <div class="vrij-content">
             <h3>Verkennen</h3>
-            <p>Begrijp het systeem voordat je het aanpast. Bij AI-implementatie: eerst in kaart brengen wat er nu al werkt, en waar de echte tijdvreters zitten.</p>
+            <p>Processen in kaart brengen. Waar zitten de echte tijdvreters? Wat kan geautomatiseerd worden?</p>
           </div>
         </div>
         <div class="vrij-step">
           <div class="vrij-letter">R</div>
           <div class="vrij-content">
             <h3>Ruimte creëren</h3>
-            <p>Verwijder wat in de weg zit. Processen die handwerk vragen dat een tool beter kan, routines die energie kosten zonder waarde te leveren.</p>
+            <p>Overbodige stappen verwijderen. Alleen automatiseren wat waarde oplevert.</p>
           </div>
         </div>
         <div class="vrij-step">
           <div class="vrij-letter">I</div>
           <div class="vrij-content">
             <h3>In beweging komen</h3>
-            <p>Niet wachten op de perfecte oplossing. De eerste automatisering live zetten, feedback ophalen, bijschaven. Actie boven analyse.</p>
+            <p>Snel iets werkends opleveren. Geen maandenlange trajecten. Actie boven analyse.</p>
           </div>
         </div>
         <div class="vrij-step">
           <div class="vrij-letter">J</div>
           <div class="vrij-content">
             <h3>Jezelf integreren</h3>
-            <p>AI werkt alleen als het past bij hoe jij en je team werken. Geen black box — je begrijpt wat er gebeurt en je hebt de controle.</p>
+            <p>De automatisering past bij jouw team. Geen black box — je begrijpt wat er draait en hebt de controle.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ════════════════════════════════════════════════
+       5. RESULTATEN
+       ════════════════════════════════════════════════ -->
+  <section class="section-pad" id="resultaten">
+    <div class="reveal">
+      <div class="overline"><span>Wat ik heb gebouwd</span></div>
+      <h2 class="section-title">Bewezen <em>resultaten</em></h2>
+    </div>
+    <div class="resultaten-grid">
+
+      <div class="resultaat-card reveal">
+        <div class="resultaat-value">40+</div>
+        <div class="resultaat-label">Automatiseringen gebouwd</div>
+        <p class="resultaat-desc">Van receptuurdatabases tot content pipelines — elk systeem opgezet, getest en opgeleverd.</p>
+      </div>
+
+      <div class="resultaat-card reveal">
+        <div class="resultaat-value">10+</div>
+        <div class="resultaat-label">Uur tijdsbesparing per week</div>
+        <p class="resultaat-desc">Gemiddeld resultaat per geimplementeerde automatisering. Handmatig werk dat verdwijnt, zodat jij je op het echte werk kunt richten.</p>
+      </div>
+
+      <div class="resultaat-card reveal">
+        <div class="resultaat-value">2-3</div>
+        <div class="resultaat-label">Dagen van idee naar werkend systeem</div>
+        <p class="resultaat-desc">Geen maandenlange trajecten. Snel iets werkends neerzetten, verfijnen op basis van gebruik.</p>
+      </div>
+
     </div>
   </section>
 
@@ -683,92 +713,28 @@
   <div class="section-divider"></div>
 
   <!-- ════════════════════════════════════════════════
-       5. BUILD IN PUBLIC
-       ════════════════════════════════════════════════ -->
-  <section class="section-pad" id="buildinpublic">
-    <div class="reveal">
-      <div class="overline"><span>Transparantie</span></div>
-      <h2 class="section-title">Volg <em>de reis</em></h2>
-    </div>
-    <div class="bip-inner">
-      <div class="bip-content reveal">
-        <p>
-          Ik deel alles: wat werkt, wat niet werkt, hoeveel omzet er binnenkomt, welke fouten ik maak. Niet voor de likes — maar omdat ik geloof dat je sneller leert van iemand die het nu doet dan van iemand die het al tien jaar geleden deed.
-        </p>
-        <p>
-          <strong>De ambitie: van EUR 8.000 naar EUR 100.000 per maand.</strong> Ik bouw dat live, in het openbaar, op LinkedIn.
-        </p>
-        <p>
-          Als je zelf nadenkt over AI in je bedrijf, of gewoon wil zien hoe dit eruitziet van binnenuit — volg me dan. Geen algoritme-optimalisatie, geen dagelijkse productiviteitstips. Gewoon wat er echt gebeurt.
-        </p>
-        <div class="bip-actions">
-          <a href="https://linkedin.com/in/raywesterhout" target="_blank" rel="noopener" class="btn btn--primary">
-            Volg op LinkedIn
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="bip-log reveal">
-        <div class="bip-entry">
-          <div class="bip-date">Apr 2025</div>
-          <div class="bip-entry-content">
-            <h4>Website herschreven</h4>
-            <p>Van statische visitekaartje naar hub voor AI-implementatiediensten. Quickscan-pagina live.</p>
-          </div>
-        </div>
-        <div class="bip-entry">
-          <div class="bip-date">Mrt 2025</div>
-          <div class="bip-entry-content">
-            <h4>Eerste AI-tools live voor horeca-klanten</h4>
-            <p>Rapportage en menu-analyse geautomatiseerd. Tijdsbesparing: 4–6 uur per klant per maand.</p>
-          </div>
-        </div>
-        <div class="bip-entry">
-          <div class="bip-date">Feb 2025</div>
-          <div class="bip-entry-content">
-            <h4>Claude Code geleerd</h4>
-            <p>Zonder programmeerachtergrond de eerste tools gebouwd. Eerste site deployed op Vercel.</p>
-          </div>
-        </div>
-        <div class="bip-entry">
-          <div class="bip-date">Jan 2025</div>
-          <div class="bip-entry-content">
-            <h4>Besluit genomen</h4>
-            <p>AI niet alleen voor mezelf gebruiken. Een tweede bedrijf bouwen rondom implementatie voor MKB.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-  <!-- ════════════════════════════════════════════════
        6. CONTACT
        ════════════════════════════════════════════════ -->
   <section class="section-pad" id="contact">
     <div class="reveal">
       <div class="overline"><span>Aan de slag</span></div>
-      <h2 class="section-title">Stuur een <em>bericht</em></h2>
+      <h2 class="section-title">Neem <em>contact op</em></h2>
     </div>
     <div class="contact-inner">
       <div class="contact-text reveal">
         <p>
-          De makkelijkste manier om te beginnen is een directe bericht op LinkedIn. Geen formulier, geen salesproces — gewoon een gesprek.
+          Stuur een DM op LinkedIn. Vertel me kort wat je bedrijf doet en wat je grootste tijdvreter is. Dan geef ik je direct een eerlijk beeld of AI daar iets aan kan veranderen.
         </p>
         <p>
-          Vertel me kort wat je bedrijf doet, hoeveel mensen er werken en wat je grootste tijdvreter is op dit moment. Dan geef ik je al in dat eerste gesprek een eerlijk beeld of AI daar iets aan kan veranderen.
-        </p>
-        <p>
-          <strong>Geen verkoopgesprek. Geen pitch. Als het past, hoor je dat. Als het niet past, zeg ik dat ook.</strong>
+          <strong>Geen verkoopgesprek. Geen pitch. Gewoon een gesprek.</strong>
         </p>
         <div class="contact-cta-wrap">
           <a href="https://linkedin.com/in/raywesterhout" target="_blank" rel="noopener" class="btn btn--primary">
             Stuur een DM op LinkedIn
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
           </a>
-          <a href="quickscan.html" class="btn btn--outline">
-            Of start met een Quickscan
+          <a href="mailto:ray@raywesterhout.nl" class="btn btn--outline">
+            ray@raywesterhout.nl
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
           </a>
         </div>
@@ -815,7 +781,8 @@
       &copy; 2025 Raymond Westerhout &mdash; raywesterhout.nl
     </div>
     <div class="footer-right">
-      <a href="#bedrijven">Bedrijven</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#resultaten">Resultaten</a>
       <a href="#aanbod">Aanbod</a>
       <a href="quickscan.html">Quickscan</a>
       <a href="https://linkedin.com/in/raywesterhout" target="_blank" rel="noopener">LinkedIn</a>

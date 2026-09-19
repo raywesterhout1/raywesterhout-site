@@ -11,20 +11,23 @@
   <meta property="og:description" content="Offertes, planning, werkbonnen en facturen, op afstand geregeld. Voor installateurs, aannemers en andere vakbedrijven waar het bedrijfsbureau nog in het hoofd van de eigenaar zit.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://raywesterhout.nl">
-  <meta property="og:image" content="https://raywesterhout.nl/images/raymond-hero.png">
+  <meta property="og:image" content="https://raywesterhout.nl/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="nl_NL">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Ray Westerhout · Het bedrijfsbureau voor vakbedrijven">
   <meta name="twitter:description" content="Offertes, planning, werkbonnen en facturen, op afstand geregeld. Voor installateurs, aannemers en andere vakbedrijven.">
-  <meta name="twitter:image" content="https://raywesterhout.nl/images/raymond-hero.png">
+  <meta name="twitter:image" content="https://raywesterhout.nl/images/og-image.jpg">
 
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>R</text></svg>">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="images/raymond-hero-720.webp" imagesrcset="images/raymond-hero-480.webp 480w, images/raymond-hero-720.webp 720w, images/raymond-hero-960.webp 960w, images/raymond-hero-1440.webp 1440w" imagesizes="(max-width: 768px) 240px, (max-width: 1024px) 360px, 480px" type="image/webp">
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
 
   <style>
@@ -42,10 +45,11 @@
       --border-light:#3A3835;
       --text:       #E8E4DD;
       --text-muted: #9A9590;
-      --text-dim:   #6A6560;
+      --text-dim:   #8A857F;
       --accent:     #C8956C;
       --accent-soft:#C8956C22;
       --accent-hover:#D4A57E;
+      --accent-ink: #8A5A2E;   /* accent als tekst op papier (AA) */
       --paper:      #EFE8DC;
       --paper-2:    #E4DCCD;
       --paper-line: #CFC5B3;
@@ -57,6 +61,15 @@
 
     html { font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
     body { background: var(--bg); color: var(--text); font-family: var(--sans); overflow-x: hidden; }
+    body.menu-open { overflow: hidden; }
+
+    /* Browser-oppervlakken in de huisstijl */
+    ::selection { background: var(--accent); color: var(--bg); }
+    .slot-wrap ::selection, .bon ::selection { background: var(--ink); color: var(--paper); }
+    :focus { outline: none; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+    .slot-wrap :focus-visible { outline-color: var(--ink); }
+    .btn:focus-visible, .nav-cta:focus-visible { outline-offset: 3px; }
 
     /* Grain */
     body::before {
@@ -171,6 +184,7 @@
       width: 100%; max-width: 480px; height: auto; object-fit: contain; object-position: bottom; display: block;
       filter: drop-shadow(0 20px 60px rgba(0,0,0,0.4));
     }
+    .hero-photo picture { display: contents; }
     .hero-photo::before {
       content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
       width: 120%; height: 70%; border-radius: 50% 50% 0 0;
@@ -216,12 +230,12 @@
       content: ''; position: absolute; top: -9px; left: 50%; width: 10px; height: 10px; margin-left: -5px;
       border-radius: 50%; background: var(--accent); box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 -2px 3px rgba(0,0,0,0.25);
     }
-    .bon-kop { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 0.8rem; border-bottom: 1px dashed var(--paper-line); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-muted); }
-    .bon-kop b { color: var(--accent); font-weight: 600; }
+    .bon-kop { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 0.8rem; border-bottom: 1px dashed var(--paper-line); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-muted); }
+    .bon-kop b { color: var(--accent-ink); font-weight: 600; }
     .bon-title { margin-top: 1.1rem; font-family: var(--serif); font-size: 1.7rem; line-height: 1.15; color: var(--ink); }
     .bon-sub { margin-top: 0.35rem; font-family: var(--serif); font-style: italic; font-size: 1.05rem; color: var(--ink-muted); }
     .bon-desc { margin-top: 1rem; font-size: 0.92rem; line-height: 1.65; color: var(--ink); }
-    .bon-voet { margin-top: 1.4rem; padding-top: 0.8rem; border-top: 1px dashed var(--paper-line); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted); display: flex; justify-content: space-between; }
+    .bon-voet { margin-top: 1.4rem; padding-top: 0.8rem; border-top: 1px dashed var(--paper-line); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted); display: flex; justify-content: space-between; }
     .bon-voet b { color: #9A3B2E; font-weight: 600; }
 
     /* ══════════════════════════════════════════════════
@@ -250,7 +264,7 @@
     .dag-notitie { margin-top: 0.6rem; font-size: 0.78rem; line-height: 1.5; color: var(--text-muted); min-height: 2.4em; }
     .dag-notitie.verloren { color: #D08A7C; }
     .tijdas { display: grid; grid-template-columns: 200px 1fr; gap: 2rem; margin-top: 1.25rem; }
-    .tijdas div { display: flex; justify-content: space-between; font-size: 0.68rem; letter-spacing: 0.1em; color: var(--text-dim); padding: 0 0.1rem; }
+    .tijdas div { display: flex; justify-content: space-between; font-size: 0.72rem; letter-spacing: 0.1em; color: var(--text-dim); padding: 0 0.1rem; }
     .week-voet { margin-top: 1.5rem; font-size: 0.8rem; color: var(--text-dim); }
 
     /* ══════════════════════════════════════════════════
@@ -293,6 +307,7 @@
     .gerecht-meta { margin-top: 0.9rem; font-size: 0.78rem; letter-spacing: 0.06em; color: var(--text-dim); }
     .gerecht-cta {
       display: inline-flex; align-items: center; gap: 0.4rem; white-space: nowrap;
+      min-height: 44px; padding: 0.6rem 0; margin-bottom: -0.6rem;
       font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
       color: var(--accent); text-decoration: none; transition: color 0.3s;
     }
@@ -354,18 +369,19 @@
       position: relative; z-index: 1;
     }
     .footer-left { font-size: 0.8rem; line-height: 1.7; color: var(--text-dim); }
-    .footer-right { display: flex; flex-wrap: wrap; gap: 2rem; }
+    .footer-right { display: flex; flex-wrap: wrap; gap: 0 2rem; }
     .footer-right a {
+      display: inline-flex; align-items: center; min-height: 44px;
       font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
       color: var(--text-dim); text-decoration: none; transition: color 0.3s;
     }
     .footer-right a:hover { color: var(--accent); }
 
-    /* Side label */
+    /* Side label: decoratie, blijft achter de content */
     .side-label {
       position: fixed; right: 3.5rem; top: 50%; transform: translateY(-50%) rotate(90deg);
       font-size: 0.65rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase;
-      color: var(--text-muted); opacity: 0.3; white-space: nowrap; z-index: 10;
+      color: var(--text-muted); opacity: 0.3; white-space: nowrap; z-index: 0; pointer-events: none;
     }
 
     /* ══════════════════════════════════════════════════
@@ -406,9 +422,17 @@
       .nav-toggle { display: block; z-index: 101; }
     }
     @media (max-width: 768px) {
-      .hero { padding: 7rem 1.5rem 2rem; }
+      .hero { padding: 6rem 1.5rem 2rem; min-height: 0; gap: 1.5rem; }
       .hero-title { font-size: 2.5rem; }
-      .hero-subtitle { font-size: 1rem; }
+      .hero-subtitle { font-size: 1rem; margin-top: 1.5rem; }
+      .hero-actions { margin-top: 2rem; }
+      .hero-content { padding-bottom: 1.5rem; }
+      /* Gezicht, belofte en knop in één scherm: foto begrensd, zacht uitlopend in de achtergrond */
+      .hero-photo img {
+        max-width: 240px; max-height: 34vh; object-fit: cover; object-position: top; filter: none;
+        -webkit-mask-image: linear-gradient(#000 72%, transparent 100%); mask-image: linear-gradient(#000 72%, transparent 100%);
+      }
+      .hero-photo::before { display: none; }
       .hero-stats-bar { padding: 0 1.5rem; }
       .section-pad, .slot { padding: 4rem 1.5rem; }
       .stats { grid-template-columns: 1fr; gap: 1.5rem; padding: 2.5rem 0; }
@@ -416,8 +440,14 @@
       .bonnen { grid-template-columns: 1fr; gap: 2.25rem; }
       .bon, .bon:nth-child(n) { transform: none; margin-top: 0; }
       .week { padding: 2rem 1.25rem; }
-      .dagen { grid-template-columns: repeat(5, 1fr); gap: 0.4rem; }
-      .dag-notitie { display: none; }
+      .week-legenda { flex-wrap: wrap; gap: 0.5rem 1.25rem; }
+      /* Weekstaat als rijen: dag, spoor en notitie blijven samen, het verhaal blijft leesbaar */
+      .dagen { grid-template-columns: 1fr; gap: 1rem; }
+      .dagen > div { display: grid; grid-template-columns: 2.25rem 1fr; column-gap: 0.75rem; align-items: center; }
+      .dag-naam { grid-row: 1 / span 2; align-self: start; padding-top: 0.15rem; }
+      .spoor { margin-top: 0; }
+      .dag-notitie { margin-top: 0.4rem; min-height: 0; }
+      .tijdas { margin-top: 1rem; padding-left: 3rem; }
       .gerecht-regel { flex-wrap: wrap; }
       .gerecht-naam { white-space: normal; }
       .gerecht-leader { display: none; }
@@ -425,8 +455,7 @@
       .gerecht-body { grid-template-columns: 1fr; gap: 1.25rem; align-items: start; }
       .gerecht--aanrader .gerecht-naam::after { display: block; width: fit-content; margin: 0.6rem 0 0; }
       .footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 3rem 1.5rem; }
-      .footer-right { justify-content: center; gap: 1.25rem 1.75rem; }
-      .hero-photo img { max-width: 280px; object-position: top; }
+      .footer-right { justify-content: center; gap: 0 1.75rem; }
       .btn { width: 100%; justify-content: center; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -450,7 +479,7 @@
        ════════════════════════════════════════════════ -->
   <nav id="navbar">
     <a href="#" class="nav-brand">ray<span>.</span></a>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links" id="navLinks">
@@ -462,6 +491,7 @@
     </ul>
   </nav>
 
+  <main>
   <!-- ════════════════════════════════════════════════
        HERO
        ════════════════════════════════════════════════ -->
@@ -484,7 +514,12 @@
       </div>
     </div>
     <div class="hero-photo">
-      <img src="images/raymond-hero.png" alt="Ray Westerhout" loading="eager">
+      <picture>
+        <source type="image/webp"
+                srcset="images/raymond-hero-480.webp 480w, images/raymond-hero-720.webp 720w, images/raymond-hero-960.webp 960w, images/raymond-hero-1440.webp 1440w"
+                sizes="(max-width: 768px) 240px, (max-width: 1024px) 360px, 480px">
+        <img src="images/raymond-hero-960.png" width="3613" height="5024" alt="Ray Westerhout" loading="eager" fetchpriority="high" decoding="async">
+      </picture>
     </div>
   </section>
 
@@ -742,7 +777,7 @@
     <div class="bezwaren">
 
       <div class="bezwaar reveal">
-        <div class="bezwaar-q">We hebben al software."</div>
+        <div class="bezwaar-q">We hebben al software.”</div>
         <div class="bezwaar-a">
           <div class="kort">Wie vult het in?</div>
           <p>Bijna iedereen heeft een pakket. Het probleem is wie het 's avonds invult. Het bedrijfsbureau werkt in jouw pakket, zodat het eindelijk gevuld wordt.</p>
@@ -750,7 +785,7 @@
       </div>
 
       <div class="bezwaar reveal">
-        <div class="bezwaar-q">Een buitenstaander kent mijn prijzen niet."</div>
+        <div class="bezwaar-q">Een buitenstaander kent mijn prijzen niet.”</div>
         <div class="bezwaar-a">
           <div class="kort">Klopt. Jouw prijsboek wel.</div>
           <p>Daarom begint alles met jouw prijsboek. De software rekent met jouw tarieven, ik lees elke offerte na, en jij tekent. Er gaat niets de deur uit zonder jouw handtekening.</p>
@@ -758,7 +793,7 @@
       </div>
 
       <div class="bezwaar reveal">
-        <div class="bezwaar-q">Ik zoek gewoon iemand in huis."</div>
+        <div class="bezwaar-q">Ik zoek gewoon iemand in huis.”</div>
         <div class="bezwaar-a">
           <div class="kort">Hoe lang al?</div>
           <p>Zoek vooral door. Tot die tijd blijft het werk liggen. En als die kracht komt, neemt hij een bedrijfsbureau over dat al draait.</p>
@@ -766,7 +801,7 @@
       </div>
 
       <div class="bezwaar reveal">
-        <div class="bezwaar-q">Wat weet een kok van mijn vak?"</div>
+        <div class="bezwaar-q">Wat weet een kok van mijn vak?”</div>
         <div class="bezwaar-a">
           <div class="kort">Niets van leidingen.</div>
           <p>Alles van werk dat in één hoofd zit en op het verkeerde moment blijft liggen. Het vakwerk zit in jouw prijsboek en jouw handtekening. Ik zorg dat het papier op tijd klaar is.</p>
@@ -834,6 +869,8 @@
     </section>
   </div>
 
+  </main>
+
   <!-- ════════════════════════════════════════════════
        FOOTER
        ════════════════════════════════════════════════ -->
@@ -860,15 +897,16 @@
     /* ── Hamburger ── */
     const navToggle = document.getElementById('navToggle');
     const navLinks  = document.getElementById('navLinks');
-    navToggle.addEventListener('click', () => {
-      navToggle.classList.toggle('active');
-      navLinks.classList.toggle('open');
-    });
-    navLinks.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        navToggle.classList.remove('active');
-        navLinks.classList.remove('open');
-      });
+    const setMenu = (open) => {
+      navToggle.classList.toggle('active', open);
+      navLinks.classList.toggle('open', open);
+      navToggle.setAttribute('aria-expanded', String(open));
+      document.body.classList.toggle('menu-open', open);
+    };
+    navToggle.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navLinks.classList.contains('open')) { setMenu(false); navToggle.focus(); }
     });
 
     /* ── Scroll-reveal ── */

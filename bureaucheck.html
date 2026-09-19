@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>De Bureaucheck · Ray Westerhout</title>
+  <meta name="description" content="Hoeveel van je bedrijfsbureau zit in jouw hoofd? Negen vragen, twee minuten. Voor installateurs, aannemers en andere vakbedrijven.">
+  <meta property="og:title" content="De Bureaucheck · Hoeveel van je bedrijfsbureau zit in jouw hoofd?">
+  <meta property="og:description" content="Negen vragen, twee minuten. Je ziet direct waar het werk bij jou blijft liggen: voor, tijdens of na de klus.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://raywesterhout.nl/bureaucheck">
+  <meta property="og:image" content="https://raywesterhout.nl/images/raymond-hero.png">
+  <meta property="og:locale" content="nl_NL">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>R</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #0C0B09; --surface: #1A1917; --surface-2: #222120; --border: #2A2825; --border-light: #3A3835;
+      --text: #E8E4DD; --text-muted: #9A9590; --text-dim: #6A6560;
+      --accent: #C8956C; --accent-soft: #C8956C22; --accent-hover: #D4A57E;
+      --paper: #EFE8DC; --paper-line: #CFC5B3; --ink: #17140F; --ink-muted: #5C554B;
+      --rood: #9A3B2E; --oranje: #B8783A; --groen: #4F7A5A;
+      --serif: 'Instrument Serif', Georgia, serif; --sans: 'DM Sans', system-ui, sans-serif;
+    }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); overflow-x: hidden; min-height: 100vh; }
+    body::before {
+      content: ''; position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 180px;
+    }
+    .ambient { position: fixed; width: 600px; height: 600px; border-radius: 50%; filter: blur(160px); opacity: 0.07; pointer-events: none; z-index: 0; background: var(--accent); top: -200px; right: -100px; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 3.5rem; background: rgba(12,11,9,0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .nav-brand { font-family: var(--serif); font-size: 1.35rem; color: var(--text); text-decoration: none; }
+    .nav-brand span { color: var(--accent); }
+    .nav-terug { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; }
+    .nav-terug:hover { color: var(--text); }
+
+    main { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 9rem 1.5rem 6rem; }
+
+    .overline { display: inline-flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; }
+    .overline::before { content: ''; width: 40px; height: 1px; background: var(--accent); }
+    .overline span { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
+    h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.08; letter-spacing: -0.02em; }
+    h1 em { font-style: italic; color: var(--accent); }
+    .intro { margin-top: 1.5rem; font-size: 1.05rem; font-weight: 300; line-height: 1.8; color: var(--text-muted); max-width: 600px; }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.95rem 2rem; font-family: var(--sans); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border-radius: 2px; cursor: pointer; border: 1px solid var(--accent); background: var(--accent); color: var(--bg); transition: all 0.3s; }
+    .btn:hover { background: var(--accent-hover); transform: translateY(-2px); }
+    .btn:disabled { opacity: 0.5; cursor: default; transform: none; }
+    .btn--ghost { background: transparent; color: var(--text-muted); border-color: var(--border); }
+    .btn--ghost:hover { color: var(--text); border-color: var(--text-muted); background: transparent; }
+    .btn svg { width: 14px; height: 14px; }
+    .cta-note { margin-top: 0.9rem; font-size: 0.8rem; color: var(--text-dim); }
+
+    .stap { display: none; }
+    .stap.actief { display: block; animation: fadeUp 0.5s ease-out both; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Voortgang */
+    .voortgang { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+    .voortgang-balk { flex: 1; height: 2px; background: var(--border); position: relative; }
+    .voortgang-balk i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--accent); transition: width 0.4s; }
+    .voortgang-tekst { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); white-space: nowrap; }
+
+    /* Vraag als bon */
+    .bon { position: relative; background: var(--paper); color: var(--ink); padding: 2rem 2rem 2.25rem; box-shadow: 0 24px 50px rgba(0,0,0,0.45); }
+    .bon::before { content: ''; position: absolute; top: -6px; left: 0; right: 0; height: 12px; background: radial-gradient(circle at 6px 6px, var(--bg) 4px, transparent 4.5px) 0 0 / 14px 12px repeat-x; }
+    .bon::after { content: ''; position: absolute; top: -9px; left: 50%; width: 10px; height: 10px; margin-left: -5px; border-radius: 50%; background: var(--accent); box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 -2px 3px rgba(0,0,0,0.25); }
+    .bon-kop { display: flex; justify-content: space-between; padding-bottom: 0.8rem; border-bottom: 1px dashed var(--paper-line); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-muted); }
+    .bon-kop b { color: var(--accent); font-weight: 600; }
+    .vraag { margin-top: 1.25rem; font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); line-height: 1.2; color: var(--ink); }
+    .opties { margin-top: 1.5rem; display: grid; gap: 0.6rem; }
+    .optie { display: flex; align-items: center; gap: 0.9rem; padding: 0.9rem 1rem; background: transparent; border: 1px solid var(--paper-line); border-radius: 2px; font-family: var(--sans); font-size: 0.98rem; color: var(--ink); text-align: left; cursor: pointer; transition: all 0.2s; }
+    .optie::before { content: ''; width: 14px; height: 14px; border-radius: 50%; border: 1px solid var(--ink-muted); flex-shrink: 0; transition: all 0.2s; }
+    .optie:hover { border-color: var(--ink); }
+    .optie.gekozen { border-color: var(--ink); background: rgba(23,20,15,0.05); }
+    .optie.gekozen::before { background: var(--accent); border-color: var(--accent); box-shadow: inset 0 0 0 3px var(--paper); }
+    .bon-nav { margin-top: 1.75rem; padding-top: 1rem; border-top: 1px dashed var(--paper-line); display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+    .bon .btn { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+    .bon .btn:hover { background: #2A261F; }
+    .bon .btn--ghost { background: transparent; color: var(--ink-muted); border-color: var(--paper-line); }
+    .bon .btn--ghost:hover { color: var(--ink); border-color: var(--ink); background: transparent; }
+
+    /* Gegevens */
+    .veld { display: flex; flex-direction: column; gap: 0.4rem; margin-top: 1.25rem; }
+    .veld label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted); }
+    .veld input { font-family: var(--sans); font-size: 1rem; padding: 0.85rem 1rem; border: 1px solid var(--paper-line); background: rgba(255,255,255,0.4); color: var(--ink); border-radius: 2px; }
+    .veld input:focus { outline: none; border-color: var(--ink); }
+    .fout { margin-top: 0.75rem; font-size: 0.85rem; color: var(--rood); min-height: 1.2em; }
+    .klein { margin-top: 1rem; font-size: 0.8rem; line-height: 1.6; color: var(--ink-muted); }
+
+    /* Uitslag */
+    .uitslag-kop { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; }
+    .uitslag-kop em { font-style: italic; color: var(--accent); }
+    .stukken { margin-top: 2.5rem; display: grid; gap: 1rem; }
+    .stuk { display: grid; grid-template-columns: 12px 1fr; gap: 1.25rem; padding: 1.5rem 1.75rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; }
+    .stuk-kleur { border-radius: 2px; }
+    .stuk-kleur.rood { background: #C4553F; }
+    .stuk-kleur.oranje { background: var(--accent); }
+    .stuk-kleur.groen { background: #6FA37C; }
+    .stuk-fase { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+    .stuk-label { margin-top: 0.3rem; font-family: var(--serif); font-size: 1.5rem; color: var(--text); }
+    .stuk-tekst { margin-top: 0.6rem; font-size: 0.98rem; line-height: 1.7; color: var(--text-muted); }
+
+    .slot { margin-top: 3rem; background: var(--paper); color: var(--ink); padding: 2.5rem 2rem; }
+    .slot h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.7rem, 3vw, 2.4rem); line-height: 1.15; }
+    .slot h2 em { font-style: italic; color: var(--rood); }
+    .slot p { margin-top: 1.25rem; font-size: 1.02rem; line-height: 1.75; color: var(--ink-muted); max-width: 600px; }
+    .slot .btn { margin-top: 1.75rem; background: var(--ink); border-color: var(--ink); color: var(--paper); }
+    .slot .btn:hover { background: #2A261F; }
+    .slot .cta-note { color: var(--ink-muted); }
+    .terug { display: inline-block; margin-top: 2.5rem; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); text-decoration: none; }
+    .terug:hover { color: var(--text); }
+
+    footer { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 0 1.5rem 3rem; font-size: 0.78rem; color: var(--text-dim); }
+
+    @media (max-width: 768px) {
+      nav { padding: 1.2rem 1.5rem; }
+      main { padding: 7rem 1.25rem 4rem; }
+      .bon { padding: 1.6rem 1.25rem 1.75rem; }
+      .bon-nav { flex-direction: column-reverse; align-items: stretch; }
+      .btn { width: 100%; }
+      .stuk { padding: 1.25rem; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+  </style>
+</head>
+<body>
+  <div class="ambient"></div>
+
+  <nav>
+    <a href="/" class="nav-brand">ray<span>.</span></a>
+    <a href="/" class="nav-terug">Terug naar de site</a>
+  </nav>
+
+  <main>
+
+    <!-- START -->
+    <section class="stap actief" id="stap-start">
+      <div class="overline"><span>De Bureaucheck · twee minuten</span></div>
+      <h1>Hoeveel van je bedrijfsbureau <em>zit in jouw hoofd?</em></h1>
+      <p class="intro">Negen vragen over de drie stukken van je administratie: voor het werk, tijdens het werk en na het werk. Je schat, ik vertaal. Aan het eind zie je waar het bij jou blijft liggen.</p>
+      <p class="intro">Geen goede of foute antwoorden. "Weet ik niet" is ook een antwoord, en meestal het eerlijkste.</p>
+      <div style="margin-top:2.5rem">
+        <button class="btn" id="knop-start">
+          Begin de check
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </button>
+        <p class="cta-note">Negen vragen · je uitslag staat direct op het scherm</p>
+      </div>
+    </section>
+
+    <!-- VRAGEN -->
+    <section class="stap" id="stap-vragen">
+      <div class="voortgang">
+        <div class="voortgang-balk"><i id="voortgang-vul" style="width:0%"></i></div>
+        <div class="voortgang-tekst" id="voortgang-tekst">Vraag 1 van 9</div>
+      </div>
+      <article class="bon">
+        <div class="bon-kop"><span id="bon-nummer">Bon 01</span><b id="bon-fase">Voor het werk</b></div>
+        <h2 class="vraag" id="vraag-tekst"></h2>
+        <div class="opties" id="opties"></div>
+        <div class="bon-nav">
+          <button class="btn btn--ghost" id="knop-terug">Vorige</button>
+          <button class="btn" id="knop-verder" disabled>Volgende</button>
+        </div>
+      </article>
+    </section>
+
+    <!-- GEGEVENS -->
+    <section class="stap" id="stap-gegevens">
+      <div class="voortgang">
+        <div class="voortgang-balk"><i style="width:100%"></i></div>
+        <div class="voortgang-tekst">Laatste stap</div>
+      </div>
+      <article class="bon">
+        <div class="bon-kop"><span>Uitslag</span><b>Bijna klaar</b></div>
+        <h2 class="vraag">Waar mag de uitslag heen?</h2>
+        <p class="klein">Je ziet hem direct op het scherm. Je adres bewaar ik zodat ik je kan mailen als ik iets heb dat bij jouw uitslag past. Geen nieuwsbrief, geen reeks.</p>
+        <form id="formulier" novalidate>
+          <div class="veld">
+            <label for="email">E-mailadres</label>
+            <input type="email" id="email" name="email" autocomplete="email" required placeholder="jij@jouwbedrijf.nl">
+          </div>
+          <div class="veld">
+            <label for="bedrijf">Bedrijfsnaam (mag leeg)</label>
+            <input type="text" id="bedrijf" name="bedrijf" autocomplete="organization" placeholder="Installatiebedrijf De Vries">
+          </div>
+          <div class="fout" id="fout"></div>
+          <div class="bon-nav">
+            <button type="button" class="btn btn--ghost" id="knop-terug-gegevens">Vorige</button>
+            <button type="submit" class="btn" id="knop-uitslag">
+              Toon mijn uitslag
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            </button>
+          </div>
+        </form>
+      </article>
+    </section>
+
+    <!-- UITSLAG -->
+    <section class="stap" id="stap-uitslag">
+      <div class="overline"><span>Jouw uitslag</span></div>
+      <h1 class="uitslag-kop" id="uitslag-kop"></h1>
+      <div class="stukken" id="stukken"></div>
+
+      <div class="slot">
+        <h2>Dit is wat jij schat. <em>De Ochtendscan meet het.</em></h2>
+        <p>In jouw eigen dossiers, in euro's. Je stuurt je laatste tien aanvragen en je laatste vijf klussen. Binnen een week ligt er één A4 met wat er blijft liggen, en een actielijst voor de komende maand. Twee uur in de ochtend, op afstand. €450 excl. btw, verrekend als je doorgaat.</p>
+        <a href="mailto:ray@raywesterhout.nl?subject=Ochtendscan%20plannen%20(na%20de%20Bureaucheck)" class="btn">
+          Plan de Ochtendscan
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <p class="cta-note">Of lees eerst verder over het bedrijfsbureau op <a href="/" style="color:inherit">raywesterhout.nl</a>.</p>
+      </div>
+      <a href="/" class="terug">Terug naar de site</a>
+    </section>
+
+  </main>
+
+  <footer>Ray Westerhout · 's-Hertogenbosch · Je gegevens worden alleen gebruikt om je de uitslag te sturen.</footer>
+
+  <script>
+    /* ── De negen vragen. score 0 = groen, 1 = oranje, 2 = rood. "weet ik niet" is altijd 2. ── */
+    const FASEN = { voor: 'Voor het werk', tijdens: 'Tijdens het werk', na: 'Na het werk' };
+    const VRAGEN = [
+      { fase: 'voor', tekst: 'Hoeveel werkdagen zit er meestal tussen een aanvraag en je offerte?',
+        opties: [['1 tot 2 dagen', 0], ['3 tot 5 dagen', 1], ['6 tot 10 dagen', 2], ['Meer dan 10 dagen', 2], ['Weet ik niet', 2]] },
+      { fase: 'voor', tekst: 'Hoeveel aanvragen heb je dit kwartaal nooit uitgerekend?',
+        opties: [['Geen', 0], ['1 of 2', 1], ['3 tot 5', 2], ['Meer dan 5', 2], ['Weet ik niet', 2]] },
+      { fase: 'voor', tekst: 'Wie maakt de offertes?',
+        opties: [['Iemand in dienst, daar is tijd voor', 0], ['Een externe calculator', 1], ['Ikzelf, overdag', 1], ['Ikzelf, ’s avonds of in het weekend', 2], ['Dat wisselt', 2]] },
+      { fase: 'tijdens', tekst: 'Een klant wil op de bouw iets extra. Wat gebeurt er dan meestal?',
+        opties: [['Bon met prijs, klant geeft akkoord vooraf', 0], ['Bon of appje met prijs, akkoord komt later', 1], ['Een appje of mailtje, zonder prijs', 2], ['Mondeling afgesproken', 2]] },
+      { fase: 'tijdens', tekst: 'Hoeveel van het meerwerk van dit jaar staat níet op een factuur, denk je?',
+        opties: [['Niets, alles is gefactureerd', 0], ['Een klein deel', 1], ['Een flink deel', 2], ['Geen idee', 2]] },
+      { fase: 'tijdens', tekst: 'Hoe geven je mensen hun uren door?',
+        opties: [['Via een app, per dag', 0], ['Werkbon op papier, per dag', 1], ['Een appje aan het eind van de week', 2], ['Op goed vertrouwen', 2]] },
+      { fase: 'na', tekst: 'Hoeveel dagen na oplevering gaat de eindfactuur meestal de deur uit?',
+        opties: [['Binnen een week', 0], ['Een tot drie weken', 1], ['Langer dan drie weken', 2], ['Pas als alle restpunten klaar zijn', 2]] },
+      { fase: 'na', tekst: 'Hoeveel staat er nu open, langer dan je betaaltermijn?',
+        opties: [['Niets', 0], ['Minder dan €5.000', 1], ['€5.000 tot €20.000', 2], ['Meer dan €20.000', 2], ['Weet ik niet', 2]] },
+      { fase: 'na', tekst: 'Hoeveel afgeronde klussen wachten nog op restpunten voordat je kunt factureren?',
+        opties: [['Geen', 0], ['1 of 2', 1], ['3 tot 5', 2], ['Meer dan 5', 2]] },
+    ];
+
+    const TEKSTEN = {
+      voor: {
+        rood:   ['Je offertes blijven liggen.', 'De klant wacht, jij ook. Elke week dat een aanvraag ligt, tekent er iemand bij een ander. Dit is werk dat je niet ziet verdwijnen, omdat je het nooit hebt uitgerekend.'],
+        oranje: ['Je offertes gaan uit, maar traag.', 'Ze komen de deur uit, alleen later dan de klant hoopte. Dat kost je opdrachten die je nooit als verloren telt.'],
+        groen:  ['Je voorkant draait.', 'Aanvragen worden op tijd uitgerekend en verstuurd. Als er bij jou geld weglekt, zit het waarschijnlijk verderop in de keten.'],
+      },
+      tijdens: {
+        rood:   ['Je meerwerk verdwijnt.', 'Wat op de bouw wordt afgesproken landt nergens. Bij de meeste vakbedrijven die ik meet is dit het grootste lek: werk dat gedaan is en nooit op een factuur komt.'],
+        oranje: ['Meerwerk wordt gefactureerd, maar achteraf.', 'En achteraf betekent discussie. Een prijs vooraf, met een akkoord van de klant, lost het grootste deel daarvan op.'],
+        groen:  ['Je legt vast wat je afspreekt.', 'Prijs vooraf, akkoord erop, uren per dag. Dat is zeldzaam in de bouw en het scheelt je elk jaar een flink bedrag.'],
+      },
+      na: {
+        rood:   ['Verdiend geld wacht.', 'Geleverd werk wacht op een factuur, en facturen wachten op geld. Dat is winst die al verdiend is en nog niet op je rekening staat.'],
+        oranje: ['Facturen gaan uit, incasso loopt achter.', 'Eén vast moment per week voor herinneringen haalt het meeste binnen. Het is geen groot werk, het is een gewoonte.'],
+        groen:  ['Je factureert op tijd en je wordt betaald.', 'Netjes. Hier hoef je niets aan te doen.'],
+      },
+    };
+
+    const KOPPEN = {
+      3: 'Drie stukken van je bedrijfsbureau <em>zitten in jouw hoofd.</em>',
+      2: 'Twee stukken van je bedrijfsbureau <em>zitten in jouw hoofd.</em>',
+      1: 'Eén stuk van je bedrijfsbureau <em>zit nog in jouw hoofd.</em>',
+      0: 'Je bedrijfsbureau <em>staat op papier.</em> Zeldzaam.',
+    };
+
+    const antwoorden = new Array(VRAGEN.length).fill(null);
+    let huidige = 0;
+
+    const $ = (id) => document.getElementById(id);
+    const toon = (id) => {
+      document.querySelectorAll('.stap').forEach((s) => s.classList.remove('actief'));
+      $(id).classList.add('actief');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    function renderVraag() {
+      const v = VRAGEN[huidige];
+      $('bon-nummer').textContent = 'Bon 0' + (huidige + 1);
+      $('bon-fase').textContent = FASEN[v.fase];
+      $('vraag-tekst').textContent = v.tekst;
+      $('voortgang-vul').style.width = ((huidige) / VRAGEN.length * 100) + '%';
+      $('voortgang-tekst').textContent = 'Vraag ' + (huidige + 1) + ' van ' + VRAGEN.length;
+      const wrap = $('opties'); wrap.innerHTML = '';
+      v.opties.forEach((o, i) => {
+        const b = document.createElement('button');
+        b.type = 'button'; b.className = 'optie' + (antwoorden[huidige] === i ? ' gekozen' : '');
+        b.textContent = o[0];
+        b.addEventListener('click', () => { antwoorden[huidige] = i; renderVraag(); });
+        wrap.appendChild(b);
+      });
+      $('knop-verder').disabled = antwoorden[huidige] === null;
+      $('knop-verder').textContent = huidige === VRAGEN.length - 1 ? 'Naar de uitslag' : 'Volgende';
+      $('knop-terug').style.visibility = huidige === 0 ? 'hidden' : 'visible';
+    }
+
+    function bereken() {
+      const som = { voor: 0, tijdens: 0, na: 0 };
+      VRAGEN.forEach((v, i) => { som[v.fase] += v.opties[antwoorden[i]][1]; });
+      const kleur = (s) => s <= 1 ? 'groen' : s <= 3 ? 'oranje' : 'rood';
+      return { voor: kleur(som.voor), tijdens: kleur(som.tijdens), na: kleur(som.na) };
+    }
+
+    function renderUitslag(u) {
+      const rood = ['voor', 'tijdens', 'na'].filter((f) => u[f] !== 'groen').length;
+      $('uitslag-kop').innerHTML = KOPPEN[rood];
+      const wrap = $('stukken'); wrap.innerHTML = '';
+      ['voor', 'tijdens', 'na'].forEach((f) => {
+        const t = TEKSTEN[f][u[f]];
+        const el = document.createElement('div'); el.className = 'stuk';
+        el.innerHTML = '<div class="stuk-kleur ' + u[f] + '"></div><div><div class="stuk-fase">' + FASEN[f] + '</div><div class="stuk-label">' + t[0] + '</div><p class="stuk-tekst">' + t[1] + '</p></div>';
+        wrap.appendChild(el);
+      });
+    }
+
+    $('knop-start').addEventListener('click', () => { toon('stap-vragen'); renderVraag(); });
+    $('knop-verder').addEventListener('click', () => {
+      if (antwoorden[huidige] === null) return;
+      if (huidige < VRAGEN.length - 1) { huidige++; renderVraag(); }
+      else { toon('stap-gegevens'); }
+    });
+    $('knop-terug').addEventListener('click', () => { if (huidige > 0) { huidige--; renderVraag(); } });
+    $('knop-terug-gegevens').addEventListener('click', () => { toon('stap-vragen'); renderVraag(); });
+
+    $('formulier').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = $('email').value.trim();
+      const bedrijf = $('bedrijf').value.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { $('fout').textContent = 'Vul een geldig e-mailadres in.'; return; }
+      $('fout').textContent = '';
+      const knop = $('knop-uitslag'); knop.disabled = true;
+      const uitslag = bereken();
+      renderUitslag(uitslag);
+      try {
+        await fetch('/api/bureaucheck', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, bedrijf, uitslag, antwoorden }),
+        });
+      } catch (err) { /* de uitslag staat op het scherm, opslaan mag stil mislukken */ }
+      knop.disabled = false;
+      toon('stap-uitslag');
+    });
+  </script>
+</body>
+</html>

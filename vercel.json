@@ -1,0 +1,15 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/quickscan",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/quickscan.html",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}

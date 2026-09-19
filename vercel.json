@@ -10,6 +10,83 @@
       "source": "/quickscan.html",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "culinaireconsultant.nl"
+        }
+      ],
+      "destination": "https://raywesterhout.nl/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.culinaireconsultant.nl"
+        }
+      ],
+      "destination": "https://raywesterhout.nl/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "aivoorhoreca.nl"
+        }
+      ],
+      "destination": "https://raywesterhout.nl/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.aivoorhoreca.nl"
+        }
+      ],
+      "destination": "https://raywesterhout.nl/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "levenssmaak.nl"
+        }
+      ],
+      "destination": "https://raywesterhout.nl/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.levenssmaak.nl"
+        }
+      ],
+      "destination": "https://raywesterhout.nl/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.raywesterhout.nl"
+        }
+      ],
+      "destination": "https://raywesterhout.nl/:path*",
+      "permanent": false
     }
   ]
 }

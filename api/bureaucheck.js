@@ -4,7 +4,7 @@
 //
 // Omgevingsvariabelen (Vercel project raywesterhout-site):
 //   KIT_API_KEY   verplicht
-//   KIT_FORM_ID   optioneel, formulier waarop wordt ingeschreven
+//   KIT_FORM_ID   optioneel, formulier waarop wordt ingeschreven (velden gaan ook zonder formulier mee via de tag)
 
 const KIT = "https://api.convertkit.com/v3";
 const KLEUREN = new Set(["groen", "oranje", "rood"]);
@@ -18,10 +18,28 @@ async function kitPost(path, body) {
   return res.json().catch(() => ({}));
 }
 
-async function tagSubscribe(email, tagName) {
-  const tag = await kitPost("/tags", { tag: { name: tagName } });
-  const id = tag && tag.tag && tag.tag.id;
-  if (id) await kitPost(`/tags/${id}/subscribe`, { email });
+// Kit v3: POST /tags geeft bij een nieuwe tag {id, name} op het hoogste niveau
+// en bij een bestaande tag een 422 "Name has already been taken". Daarom eerst
+// opzoeken in de lijst, en pas aanmaken als hij er niet is.
+let tagCache = null;
+async function tagId(naam) {
+  if (!tagCache) {
+    const lijst = await fetch(`${KIT}/tags?api_key=${process.env.KIT_API_KEY}`).then((r) => r.json()).catch(() => ({}));
+    tagCache = new Map((lijst.tags || []).map((t) => [t.name, t.id]));
+  }
+  if (tagCache.has(naam)) return tagCache.get(naam);
+  const nieuw = await kitPost("/tags", { tag: { name: naam } });
+  const id = nieuw && (nieuw.id || (nieuw.tag && nieuw.tag.id));
+  if (id) tagCache.set(naam, id);
+  return id || null;
+}
+
+// Inschrijven op een tag; velden mogen hier direct mee (net als bij een formulier).
+async function tagSubscribe(email, naam, fields) {
+  const id = await tagId(naam);
+  if (!id) return false;
+  const r = await kitPost(`/tags/${id}/subscribe`, { email, ...(fields && { fields }) });
+  return Boolean(r && r.subscription);
 }
 
 module.exports = async function handler(req, res) {
@@ -64,25 +82,12 @@ module.exports = async function handler(req, res) {
     if (process.env.KIT_FORM_ID) {
       await kitPost(`/forms/${process.env.KIT_FORM_ID}/subscribe`, { email, fields });
     }
-    await tagSubscribe(email, "bureaucheck");
+    // De velden gaan mee op de hoofdtag; de kleurtags alleen voor segmentatie.
+    const ok = await tagSubscribe(email, "bureaucheck", fields);
     await tagSubscribe(email, `bureaucheck-voor-${uitslag.voor}`);
     await tagSubscribe(email, `bureaucheck-tijdens-${uitslag.tijdens}`);
     await tagSubscribe(email, `bureaucheck-na-${uitslag.na}`);
-    // Velden meegeven kan alleen via het formulier; zonder KIT_FORM_ID zetten we
-    // ze via de tag-inschrijving niet. Daarom hieronder alsnog via subscriber-update
-    // als er geen formulier is geconfigureerd.
-    if (!process.env.KIT_FORM_ID) {
-      const zoek = await fetch(`${KIT}/subscribers?api_secret=${process.env.KIT_API_SECRET || ""}&email_address=${encodeURIComponent(email)}`).then((r) => r.json()).catch(() => null);
-      const sub = zoek && zoek.subscribers && zoek.subscribers[0];
-      if (sub && process.env.KIT_API_SECRET) {
-        await fetch(`${KIT}/subscribers/${sub.id}`, {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ api_secret: process.env.KIT_API_SECRET, fields }),
-        });
-      }
-    }
-    return res.status(200).json({ ok: true, opgeslagen: true });
+    return res.status(200).json({ ok: true, opgeslagen: ok });
   } catch (err) {
     console.error("Kit error:", err);
     return res.status(200).json({ ok: true, opgeslagen: false });

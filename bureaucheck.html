@@ -120,6 +120,13 @@
     .slot p { margin-top: 1.25rem; font-size: 1.02rem; line-height: 1.75; color: var(--ink-muted); max-width: 600px; }
     .slot .btn { margin-top: 1.75rem; background: var(--ink); border-color: var(--ink); color: var(--paper); }
     .slot .btn:hover { background: #2A261F; }
+
+    /* Tweede deur: het gesprek van twintig minuten, onder de scan */
+    .tweede-deur { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--paper-line); }
+    .tweede-deur h3 { font-family: var(--serif); font-weight: 400; font-size: 1.5rem; line-height: 1.2; color: var(--ink); }
+    .tweede-deur p { margin-top: 0.75rem; font-size: 0.95rem; line-height: 1.7; color: var(--ink-muted); max-width: 52ch; }
+    .tweede-deur .btn { margin-top: 1.25rem; background: transparent; color: var(--ink); border-color: var(--paper-line); }
+    .tweede-deur .btn:hover { background: transparent; border-color: var(--ink); transform: translateY(-2px); }
     .slot .cta-note { color: var(--ink-muted); }
     .terug { display: inline-block; margin-top: 2.5rem; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); text-decoration: none; }
     .terug:hover { color: var(--text); }
@@ -223,7 +230,15 @@
           Plan de Ochtendscan
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
         </a>
-        <p class="cta-note">Of lees eerst verder over het bedrijfsbureau op <a href="/" style="color:inherit">raywesterhout.nl</a>.</p>
+        <p class="cta-note">Verrekend als je doorgaat. De scorekaart en de actielijst houd je, wat je daarna ook beslist.</p>
+
+        <div class="tweede-deur">
+          <h3>Liever eerst even praten?</h3>
+          <p>Twintig minuten aan de telefoon. Ik loop je antwoorden hierboven met je door en vertel je wat ik bij vergelijkbare bedrijven tegenkom. Het kost niets en ik verkoop niets in dat gesprek. Wat je hoort, hou je.</p>
+          <a href="mailto:hallo@raywesterhout.nl?subject=Bureaucheck%3A%20graag%20even%20twintig%20minuten" class="btn btn--ghost">
+            Plan twintig minuten
+          </a>
+        </div>
       </div>
       <a href="/" class="terug">Terug naar de site</a>
     </section>
